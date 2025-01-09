@@ -5,5 +5,8 @@
 .page__content {
   max-width: 1360px;
   margin: 0 auto;
-  /* border: solid red; */
+  padding-top: 0 auto;
+  /* //Creating padding to not let elements touch the browser */
+  padding-left: 20px;
+  padding-right: 20px;
 }
