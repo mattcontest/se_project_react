@@ -11,13 +11,20 @@
 }
 .header__username {
   margin: 0;
+  /* margin-right: 12px; */
+}
+
+.header__logo {
+  margin-right: 24px;
 }
 
 .header__add-clothes {
   margin-left: auto;
+  margin-right: 20px;
 }
 
 .header__user-container {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
