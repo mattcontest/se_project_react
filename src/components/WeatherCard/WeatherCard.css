@@ -18,7 +18,7 @@
 }
 
 .weather-card__image {
-  object-fit: contain;
+  object-fit: cover;
   object-position: right top;
   width: 100%;
 }
