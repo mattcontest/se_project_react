@@ -1,5 +1,10 @@
 .weather-card {
   position: relative;
+  display: flex;
+  /* border: solid red; */
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .weather-card__temp {
@@ -13,4 +18,7 @@
 }
 
 .weather-card__image {
+  object-fit: contain;
+  object-position: right top;
+  width: 100%;
 }
