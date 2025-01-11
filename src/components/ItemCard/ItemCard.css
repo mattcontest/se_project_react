@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Cabinet";
+  src: url("../../assets/cabinet-grotesk/CabinetGrotesk-Regular.otf");
+}
+.card {
+  list-style-type: none;
+}
+
+.card__image {
+  width: 323px;
+  height: 323px;
+  border-radius: 19px;
+  position: relative;
+}
+
+.card__name {
+  position: absolute;
+  margin: 0;
+  /* border: solid red; */
+  height: 20px;
+  width: 91px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  z-index: 1;
+  margin-left: 116px;
+  margin-right: 116px;
+  margin-top: 15px;
+  font-family: "Cabinet";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
