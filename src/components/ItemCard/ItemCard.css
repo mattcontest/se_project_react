@@ -27,7 +27,7 @@
   text-align: center;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 4px;
-  z-index: 1;
+  /* z-index: 1; */
   top: 15px;
   font-family: "Cabinet";
   font-weight: 700;

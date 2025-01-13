@@ -6,3 +6,15 @@
   margin: 0;
   /* margin-bottom: 171px; */
 }
+
+.cards__text {
+  margin-top: 40px;
+  margin-bottom: 34px;
+  /* border: solid red; */
+  width: 340px;
+  height: 25px;
+  font-family: "Cabinet";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.8px;
+}
