@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 171px;
+  display: flex;
+  /* border: solid red; */
+  justify-content: space-between;
+}
+
+.footer__text {
+  margin: 0;
+  font-family: "Cabinet";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
