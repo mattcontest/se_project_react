@@ -18,8 +18,14 @@
   top: 20px;
   right: 28px;
   border: none;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: white;
 }
+
+.modal__close:hover {
+  opacity: 0.3;
+}
+
 .button_close {
   width: 20px;
   height: 20px;
@@ -50,6 +56,7 @@
 
 .modal__radio-button {
   margin-bottom: 32px;
+  border: solid red;
 }
 
 .modal__content {
@@ -83,6 +90,9 @@
 
 .modal__radio-input {
   margin-right: 11px;
+  border: solid red;
+  width: 16px;
+  height: 16px;
 }
 
 .modal__radio-button {
@@ -123,7 +133,16 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  background-color: rgba(0, 0, 0, 1);
   color: white;
   border: none;
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__submit-disabled {
+  background-color: rgba(0, 0, 0, 0.3);
 }
