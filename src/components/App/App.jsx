@@ -10,10 +10,19 @@ function App() {
   const [weatherData, setWeatherData] = useState({ type: "hot" });
   const [activeModal, setActiveModal] = useState("");
 
+  const handleAddClick = () => {
+    setActiveModal("add-garment");
+    console.log("It's clicking");
+  };
+
+  const closeModal = () => {
+    setActiveModal("");
+  };
+
   return (
     <div className="page">
       <div className="page__content">
-        <Header />
+        <Header handleAddClick={handleAddClick} />
         <Main weatherData={weatherData} />
         <Footer />
       </div>
@@ -21,6 +30,7 @@ function App() {
         title="New Garment"
         buttonText="Add Garment"
         activeModal={activeModal}
+        closeModal={closeModal}
       >
         <label
           htmlFor="name"
