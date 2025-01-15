@@ -1,9 +1,9 @@
 import "./ModalWithForm.css";
 import close_btn from "../../assets/close-btn.svg";
 
-function ModalWithForm({ children, buttonText, title }) {
+function ModalWithForm({ children, buttonText, title, activeModal }) {
   return (
-    <div className="modal">
+    <div className={`modal ${activeModal}`}>
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button className="modal__close">
