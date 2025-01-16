@@ -23,8 +23,8 @@
   top: 20px;
   right: 28px;
   border: none;
-  /* background-color: transparent; */
-  background-color: white;
+  background-color: transparent;
+  /* background-color: white; */
 }
 
 .modal__close:hover {

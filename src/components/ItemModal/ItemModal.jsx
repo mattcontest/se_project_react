@@ -1,5 +1,5 @@
 import "./ItemModal.css";
-import close_btn from "../../assets/close-btn.svg";
+import close_btn from "../../assets/button-close-transparent.svg";
 
 function ItemModal({ activeModal, card, handleCloseModal }) {
   return (
@@ -7,7 +7,7 @@ function ItemModal({ activeModal, card, handleCloseModal }) {
       <div className="modal__content modal__content_type_image">
         <button
           type="button"
-          className="modal__close"
+          className="modal__close modal__close_item"
           onClick={handleCloseModal}
         >
           <img className="button_close" src={close_btn} alt="close button" />
