@@ -1,5 +1,4 @@
 .modal__content_type_image {
-  /* border: solid red; */
   max-width: 498px;
   width: 100%;
   max-height: 610px;
@@ -8,7 +7,6 @@
 }
 
 .modal__image {
-  /* border: solid red; */
   max-width: 498px;
   width: 100%;
   max-height: 498px;
