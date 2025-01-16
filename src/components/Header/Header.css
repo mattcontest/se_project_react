@@ -5,6 +5,10 @@
   padding-top: 32px;
   padding-left: 40px;
   padding-bottom: 28px;
+  font-family: "Cabinet";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
 }
 .header__date-and-location {
   margin: 0;
