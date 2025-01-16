@@ -11,8 +11,9 @@ import { coordinates, APIkey } from "../../utils/constants.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
-    type: "cold",
-    temp: { F: 999, C: 999 },
+    type: "",
+    temp: { F: "" },
+    city: "",
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -38,7 +39,8 @@ function App() {
       .then((data) => {
         console.log(data);
         const filterData = filterWeatherData(data);
-        console.log(filterData);
+        console.log("Cargo", filterData);
+        setWeatherData(filterData);
       })
       .catch((error) => {
         console.error("Error fetching weather data", error);
@@ -48,7 +50,7 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} />
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
