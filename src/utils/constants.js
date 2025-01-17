@@ -1,3 +1,12 @@
+export const defaultWeatherOptions = {
+  day: {
+    url: new URL("../assets/day/default.svg", import.meta.url).href,
+  },
+  night: {
+    url: new URL("../assets/night/default.svg", import.meta.url).href,
+  },
+};
+
 export const weatherOptions = [
   {
     day: true,
