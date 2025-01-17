@@ -1,15 +1,5 @@
 import "../WeatherCard/WeatherCard.css";
-import sunny from "../../assets/sunny1.svg";
 import { weatherOptions } from "../../utils/constants";
-// import { sunny, cloudy, fog, rain, snow, storm } from "../../assets/day/";
-// import {
-//   night_sunny,
-//   night_cloudy,
-//   night_fog,
-//   night_rain,
-//   night_snow,
-//   night_storm,
-// } from "../../assets/night/";
 
 function WeatherCard({ weatherData }) {
   const weatherOption = weatherOptions.filter((option) => {
@@ -24,14 +14,23 @@ function WeatherCard({ weatherData }) {
 
   // console.log("Check this -->", weatherOption);
   // console.log("Check this -->", weatherOption[0].url);
-  const imgUrl = weatherOption[0]?.url;
-  console.log(imgUrl);
+  const currentWeather = weatherOption[0];
+  // const day = weatherOption[0]?.day;
+  // const imgUrl = weatherOption[0]?.url;
+  // const condition = weatherOption[0]?.condition;
+  // console.log(imgUrl);
 
   return (
     <section className="weather-card">
       {/* WC Component */}
       <p className="weather-card__temp">{`${weatherData.temp.F}`}°F</p>
-      <img src={imgUrl} alt="" className="weather-card__image" />
+      <img
+        src={currentWeather?.url}
+        alt={` Time: ${currentWeather?.day ? "day" : "night"} Weather: ${
+          currentWeather?.condition
+        }`}
+        className="weather-card__image"
+      />
     </section>
   );
 }
