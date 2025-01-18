@@ -5,7 +5,7 @@ import "../Main/Main.css";
 function Main({ weatherData, handleCardClick }) {
   console.log("From main", weatherData);
   return (
-    <main>
+    <main className="main">
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
