@@ -1,0 +1,45 @@
+.toggle-switch {
+  width: 56px;
+  height: 28px;
+  border: solid 2px black;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.toggle-switch_checkbox {
+  opacity: 0;
+}
+
+.toggle-switch_checkbox:checked ~ .toggle-switch__circle {
+  left: 28px;
+}
+
+.toggle-switch__text {
+  font-family: "Cabinet";
+  font-weight: 700;
+  font-size: 14px;
+  top: 3px;
+  position: absolute;
+}
+
+.toggle-switch__text_F {
+  color: rgba(255, 255, 255, 1);
+  left: 9px;
+}
+
+.toggle-switch__text_C {
+  color: rgba(0, 0, 0, 0.5);
+  right: 9px;
+}
+
+.toggle-switch__circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 20px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  transition: all 0.8s;
+}
