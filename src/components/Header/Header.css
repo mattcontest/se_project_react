@@ -3,7 +3,8 @@
   flex-direction: row;
   align-items: center;
   padding-top: 32px;
-  padding-left: 40px;
+  /* //Styled it our for design/visual appearance purposes */
+  /* padding-left: 40px; */
   padding-bottom: 28px;
   font-family: "Cabinet";
   font-weight: 700;

@@ -3,7 +3,7 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-function Header({ handleAddClick, weatherData }) {
+function Header({ handleAddClick, weatherData, currentTemperatureUnit }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
