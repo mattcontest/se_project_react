@@ -7,10 +7,10 @@ export default function ToggleSwitch() {
     CurrentTemperatureUnitContext
   );
 
-  console.log(
-    "Checking Temperature Unit from ToggleSwitch.jsx",
-    currentTemperatureUnit
-  );
+  //   console.log(
+  //     "Checking Temperature Unit from ToggleSwitch.jsx",
+  //     currentTemperatureUnit
+  //   );
 
   return (
     <label className="toggle-switch">

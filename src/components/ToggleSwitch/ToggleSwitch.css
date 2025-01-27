@@ -14,9 +14,11 @@
 
 .toggle-switch_checkbox:checked ~ .toggle-switch__circle {
   left: 28px;
-  /* left: 370px; */
-  /* border: solid red; */
 }
+
+/* .toggle-switch_checkbox:not(:checked) ~ .toggle-switch__text {
+  color: white;
+} */
 
 .toggle-switch__text {
   font-family: "Cabinet";
@@ -25,10 +27,10 @@
   top: 3px;
   position: absolute;
   z-index: 11;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .toggle-switch__text_F {
-  color: rgba(255, 255, 255, 1);
   left: 9px;
 }
 

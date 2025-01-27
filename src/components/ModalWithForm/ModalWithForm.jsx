@@ -9,7 +9,7 @@ function ModalWithForm({
   handleCloseModal,
   isOpen,
 }) {
-  console.log("Checking isOpen Prop", isOpen);
+  // console.log("Checking isOpen Prop", isOpen);
   return (
     <div className={`modal ${isOpen && "modal_open"}`}>
       <div className="modal__content">

@@ -9,7 +9,7 @@ function Header({ handleAddClick, weatherData }) {
     day: "numeric",
   });
 
-  console.log("Check weatherData", weatherData);
+  // console.log("Check weatherData", weatherData);
   const [checked, setChecked] = React.useState(false);
   const handleChange = () => {
     setChecked(!checked);

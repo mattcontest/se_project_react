@@ -23,6 +23,8 @@ function App() {
     setCurrentTempereatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
   };
 
+  console.log("Current temperature unit", currentTemperatureUnit);
+
   const handleCardClick = (card) => {
     // debugger;
     setActiveModal("preview");
@@ -42,7 +44,7 @@ function App() {
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const filterData = filterWeatherData(data);
         console.log("Cargo", filterData);
         setWeatherData(filterData);
