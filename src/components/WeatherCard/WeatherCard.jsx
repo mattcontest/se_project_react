@@ -27,12 +27,14 @@ function WeatherCard({ weatherData }) {
     <section className="weather-card">
       {/* WC Component */}
       <p className="weather-card__temp">
-        {`${
+        {/* {`${
           currentTemperatureUnit == "F"
             ? weatherData.temp.F
             : weatherData.temp.C
         }`}
-        °{`${currentTemperatureUnit}`}
+        °{`${currentTemperatureUnit}`} */}
+        {`${weatherData.temp[currentTemperatureUnit]}`}°
+        {`${currentTemperatureUnit}`}
       </p>
       <img
         src={currentWeather?.url}

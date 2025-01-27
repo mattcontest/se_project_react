@@ -32,7 +32,7 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <img src={logo} alt="logo" className="header__logo" />
-      <p className="header__date-and-location">{`${currentDate}, ${weatherData.city}`}</p>
+      <p className="header__date-and-location">{`${currentDate}, ${weatherData?.city}`}</p>
       {/* <input type="checkbox" value="F" className="header__toggle_switch" /> */}
       {/* <Checkbox
         label="F/C"

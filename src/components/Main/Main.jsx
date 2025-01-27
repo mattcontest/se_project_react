@@ -16,8 +16,8 @@ function Main({ weatherData, handleCardClick }) {
           Today is{" "}
           {`${
             currentTemperatureUnit == "F"
-              ? weatherData.temp.F
-              : weatherData.temp.C
+              ? weatherData.temp?.F
+              : weatherData.temp?.C
           }`}
           {`${currentTemperatureUnit}`} You may want to wear:
         </p>

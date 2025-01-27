@@ -9,13 +9,21 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit.jsx";
+import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 
 function App() {
+  const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
   const [weatherData, setWeatherData] = useState({
     type: "",
-    temp: { F: "" },
+    temp: { F: `${isWeatherLoaded ? " " : "loading.."}` },
+    // temp: { F: `loading..` },
     city: "",
+    type: "",
+    condition: "",
+    isDay: Boolean,
   });
+  console.log("Weather Data", weatherData);
+
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
@@ -23,7 +31,9 @@ function App() {
     setCurrentTempereatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
   };
 
-  console.log("Current temperature unit", currentTemperatureUnit);
+  console.log("Stauts of Loading", isWeatherLoaded);
+
+  // console.log("Current temperature unit", currentTemperatureUnit);
 
   const handleCardClick = (card) => {
     // debugger;
@@ -48,11 +58,15 @@ function App() {
         const filterData = filterWeatherData(data);
         console.log("Cargo", filterData);
         setWeatherData(filterData);
+        setIsWeatherLoaded(true);
+        console.log("Status of loading", isWeatherLoaded);
       })
       .catch((error) => {
         console.error("Error fetching weather data", error);
       });
   }, []);
+
+  console.log("Staut of Loading after", isWeatherLoaded);
 
   return (
     <CurrentTemperatureUnitContext.Provider
@@ -73,71 +87,13 @@ function App() {
 
           <Footer />
         </div>
-        <ModalWithForm
+        <AddItemModal
           title="New Garment"
           buttonText="Add Garment"
           activeModal={activeModal}
           handleCloseModal={closeActiveModal}
           isOpen={activeModal === "add-garment"}
-        >
-          <label htmlFor="name" className="modal__label  modal__label_name">
-            Name{""}
-            <input
-              type="text"
-              className="modal__input"
-              id="name"
-              placeholder="Name"
-            />
-          </label>
-          <label htmlFor="imageUrl" className="modal__label modal__label_image">
-            Image{""}
-            <input
-              type="url"
-              className="modal__input"
-              id="imageUrl"
-              placeholder="Image URL"
-            />
-          </label>
-          <fieldset className="modal__radio-button">
-            <legend className="modal__legend">Select the weather type</legend>
-            <label
-              htmlFor="hot"
-              className="modal__label modal__label_type_radio"
-            >
-              <input
-                name="option"
-                id="hot"
-                type="radio"
-                className="modal__radio-input"
-              />
-              Hot
-            </label>
-            <label
-              htmlFor="warm"
-              className="modal__label modal__label_type_radio"
-            >
-              <input
-                name="option"
-                id="warm"
-                type="radio"
-                className="modal__radio-input"
-              />
-              Warm
-            </label>
-            <label
-              htmlFor="cold"
-              className="modal__label modal__label_type_radio"
-            >
-              <input
-                name="option"
-                id="cold"
-                type="radio"
-                className="modal__radio-input"
-              />
-              Cold
-            </label>
-          </fieldset>
-        </ModalWithForm>
+        />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
