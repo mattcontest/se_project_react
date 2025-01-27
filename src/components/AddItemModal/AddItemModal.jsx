@@ -68,6 +68,7 @@ export default function AddItemModal({
             className="modal__radio-input"
             onChange={handleWeatherChange}
             value="hot"
+            checked={weather === "hot" ? true : false}
           />
           Hot
         </label>
@@ -79,6 +80,7 @@ export default function AddItemModal({
             onChange={handleWeatherChange}
             className="modal__radio-input"
             value="warm"
+            checked={weather === "warm" ? true : false}
           />
           Warm
         </label>
@@ -90,6 +92,7 @@ export default function AddItemModal({
             onChange={handleWeatherChange}
             className="modal__radio-input"
             value="cold"
+            checked={weather === "cold" ? true : false}
           />
           Cold
         </label>
