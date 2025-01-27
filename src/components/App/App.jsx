@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "./App.css";
+import { defaultClothingItems } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -24,6 +25,7 @@ function App() {
   });
   console.log("Weather Data", weatherData);
 
+  const [clothingItems, setClothingItems] = useState([...defaultClothingItems]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
@@ -83,6 +85,7 @@ function App() {
             weatherData={weatherData}
             handleCardClick={handleCardClick}
             currentTemperatureUnit={currentTemperatureUnit}
+            clothingItems={clothingItems}
           />
 
           <Footer />
