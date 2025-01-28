@@ -8,10 +8,12 @@ export default function AddItemModal({
   activeModal,
   handleCloseModal,
   isOpen,
+  onAddItemSubmit,
 }) {
   const [name, setName] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [weather, setWeather] = useState("");
+
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -23,6 +25,14 @@ export default function AddItemModal({
     setWeather(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddItemSubmit({ name, weather, imgUrl });
+    setName("");
+    setImgUrl("");
+    setWeather("");
+  };
+
   console.log("Chec status of name", name);
   return (
     <ModalWithForm
@@ -31,6 +41,7 @@ export default function AddItemModal({
       activeModal={activeModal}
       handleCloseModal={handleCloseModal}
       isOpen={isOpen}
+      onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label  modal__label_name">
         Name{""}

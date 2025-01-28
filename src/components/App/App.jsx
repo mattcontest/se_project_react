@@ -38,7 +38,6 @@ function App() {
   // console.log("Current temperature unit", currentTemperatureUnit);
 
   const handleCardClick = (card) => {
-    // debugger;
     setActiveModal("preview");
     setSelectedCard(card);
   };
@@ -51,6 +50,16 @@ function App() {
   const closeActiveModal = () => {
     console.log("Does it work?");
     setActiveModal("");
+  };
+
+  const handleAddItemSubmit = ({ name, weather, imgUrl }) => {
+    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
+    console.log("that's the id", newId);
+    setClothingItems([
+      { _id: newId, name, link: imgUrl, weather },
+      ...clothingItems,
+    ]);
+    closeActiveModal();
   };
 
   useEffect(() => {
@@ -96,6 +105,7 @@ function App() {
           activeModal={activeModal}
           handleCloseModal={closeActiveModal}
           isOpen={activeModal === "add-garment"}
+          onAddItemSubmit={handleAddItemSubmit}
         />
         <ItemModal
           activeModal={activeModal}
