@@ -11,6 +11,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
+import { v4 } from "uuid";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -53,10 +54,10 @@ function App() {
   };
 
   const handleAddItemSubmit = ({ name, weather, imgUrl }) => {
-    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    console.log("that's the id", newId);
+    // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
+    // console.log("that's the id", newId);
     setClothingItems([
-      { _id: newId, name, link: imgUrl, weather },
+      { _id: v4(), name, link: imgUrl, weather },
       ...clothingItems,
     ]);
     closeActiveModal();
