@@ -110,7 +110,7 @@ function App() {
               element={
                 <Profile
                   weatherData={weatherData}
-                  handleCardClick={handleCardClick}
+                  onCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />
               }

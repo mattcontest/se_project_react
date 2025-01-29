@@ -8,7 +8,7 @@ function ClothesSection({ weatherData, handleCardClick, clothingItems }) {
         <button className="clothes__tool_button">+Add new</button>
       </div>
 
-      <ul className="cards__list profile__cards">
+      <ul className="clothes-section__items">
         {clothingItems
           .filter((item) => {
             return item.weather === weatherData.type;

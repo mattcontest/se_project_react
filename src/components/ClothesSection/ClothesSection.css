@@ -5,10 +5,15 @@
   gap: 20px;
 }
 
-.profile__cards {
+.clothes-section__items {
   /* border: solid orange; */
   min-width: 1051px;
-  min-height: 676px;
+  /* min-height: 676px; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .clothes-section {
