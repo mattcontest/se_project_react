@@ -1,0 +1,6 @@
+.profile {
+  border: solid red;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

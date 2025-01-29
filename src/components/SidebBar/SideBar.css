@@ -1,0 +1,5 @@
+.profile__sidebar {
+  border: solid red;
+  display: flex;
+  flex-direction: row;
+}

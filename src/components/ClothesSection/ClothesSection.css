@@ -1,0 +1,16 @@
+.clothes__section_tools {
+  border: solid red;
+  display: flex;
+  flex-direction: row;
+}
+
+.cards__list {
+  border: solid orange;
+}
+
+.clothes-section {
+  border: solid purple;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
