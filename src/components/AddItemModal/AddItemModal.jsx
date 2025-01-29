@@ -33,7 +33,7 @@ export default function AddItemModal({
     setWeather("");
   };
 
-  console.log("Chec status of name", name);
+  //   console.log("Chec status of name", name);
   return (
     <ModalWithForm
       title={title}

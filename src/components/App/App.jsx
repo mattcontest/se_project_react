@@ -11,7 +11,6 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
-import { v4 } from "uuid";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -45,21 +44,21 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
-    console.log("It's clicking");
+    // console.log("It's clicking");
   };
 
   const closeActiveModal = () => {
-    console.log("Does it work?");
+    // console.log("Does it work?");
     setActiveModal("");
   };
 
   const handleAddItemSubmit = ({ name, weather, imgUrl }) => {
     // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    // console.log("that's the id", newId);
-    setClothingItems([
-      { _id: v4(), name, link: imgUrl, weather },
-      ...clothingItems,
+    setClothingItems((prevItems) => [
+      { name, link: imgUrl, weather },
+      ...prevItems,
     ]);
+    // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
     closeActiveModal();
   };
 
@@ -71,7 +70,7 @@ function App() {
         console.log("Cargo", filterData);
         setWeatherData(filterData);
         setIsWeatherLoaded(true);
-        console.log("Status of loading", isWeatherLoaded);
+        // console.log("Status of loading", isWeatherLoaded);
       })
       .catch((error) => {
         console.error("Error fetching weather data", error);
