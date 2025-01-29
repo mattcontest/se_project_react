@@ -1,16 +1,46 @@
 .clothes__section_tools {
-  border: solid red;
+  /* border: solid red; */
   display: flex;
   flex-direction: row;
+  gap: 20px;
 }
 
-.cards__list {
-  border: solid orange;
+.profile__cards {
+  /* border: solid orange; */
+  min-width: 1051px;
+  min-height: 676px;
 }
 
 .clothes-section {
-  border: solid purple;
+  /* border: solid purple; */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  width: 65%;
+}
+
+.clothes__section_tools {
+  align-items: center;
+  font-family: "Cabinet";
+  font-size: 20px;
+}
+
+.clothes__tool_title {
+  /* width: 94px; */
+  /* height: 25px; */
+  /* border: solid black; */
+  line-height: 24.8px;
+  font-weight: 700;
+  /* border: solid red; */
+}
+
+.clothes__tool_button {
+  border: none;
+  height: 25px;
+  width: 140px;
+  /* border: solid red; */
+  width: 90px;
+  height: 25px;
+  /* background-color: transparent; */
+  border-radius: 20px;
 }

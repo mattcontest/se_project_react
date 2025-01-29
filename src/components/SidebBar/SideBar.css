@@ -2,4 +2,6 @@
   border: solid red;
   display: flex;
   flex-direction: row;
+  height: 56px;
+  width: 229px;
 }

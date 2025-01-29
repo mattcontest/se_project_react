@@ -1,6 +1,7 @@
 .profile {
-  border: solid red;
+  /* border: solid red; */
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 116px;
+  flex-grow: 1;
 }

@@ -4,11 +4,11 @@ function ClothesSection({ weatherData, handleCardClick, clothingItems }) {
   return (
     <div className="clothes-section">
       <div className="clothes__section_tools">
-        <p>Your Items</p>
-        <button>+Add new</button>
+        <p className="clothes__tool_title">Your Items</p>
+        <button className="clothes__tool_button">+Add new</button>
       </div>
-      <ul className="cards__list">
-        {/* {defaultClothingItems */}
+
+      <ul className="cards__list profile__cards">
         {clothingItems
           .filter((item) => {
             return item.weather === weatherData.type;
