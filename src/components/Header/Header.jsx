@@ -3,6 +3,7 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom";
 function Header({ handleAddClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -31,7 +32,9 @@ function Header({ handleAddClick, weatherData }) {
 
   return (
     <header className="header">
-      <img src={logo} alt="logo" className="header__logo" />
+      <Link to="/">
+        <img src={logo} alt="logo" className="header__logo" />
+      </Link>
       <p className="header__date-and-location">{`${currentDate}, ${weatherData?.city}`}</p>
       {/* <input type="checkbox" value="F" className="header__toggle_switch" /> */}
       {/* <Checkbox
@@ -47,11 +50,12 @@ function Header({ handleAddClick, weatherData }) {
       >
         +Add Clothes
       </button>
-
-      <div className="header__user-container">
-        <p className="header__username">Terrance User</p>
-        <img src={avatar} alt="Terrence" className="header__avatar" />
-      </div>
+      <Link to="/profile">
+        <div className="header__user-container">
+          <p className="header__username">Terrance User</p>
+          <img src={avatar} alt="Terrence" className="header__avatar" />
+        </div>
+      </Link>
     </header>
   );
 }

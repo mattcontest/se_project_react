@@ -1,6 +1,6 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
-function ClothesSection({ weatherData, handleCardClick, clothingItems }) {
+function ClothesSection({ weatherData, onCardClick, clothingItems }) {
   return (
     <div className="clothes-section">
       <div className="clothes__section_tools">
@@ -15,11 +15,7 @@ function ClothesSection({ weatherData, handleCardClick, clothingItems }) {
           })
           .map((item) => {
             return (
-              <ItemCard
-                onCardClick={handleCardClick}
-                key={item._id}
-                item={item}
-              />
+              <ItemCard onCardClick={onCardClick} key={item._id} item={item} />
             );
           })}
       </ul>

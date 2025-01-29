@@ -8,7 +8,7 @@ function Profile({ weatherData, onCardClick, clothingItems }) {
       <SideBar />
       <ClothesSection
         weatherData={weatherData}
-        handleCardClick={onCardClick}
+        onCardClick={onCardClick}
         clothingItems={clothingItems}
       />
     </div>
