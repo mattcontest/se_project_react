@@ -42,6 +42,7 @@ function App() {
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+    console.log("Selected card ID -->", card._id);
   };
 
   const handleAddClick = () => {
@@ -61,6 +62,21 @@ function App() {
       ...prevItems,
     ]);
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
+    closeActiveModal();
+  };
+
+  const handleDeleteItem = (id) => {
+    // console.log("Attempting deleting", id);
+    // const testF = (clothingItems) => {
+    //   const data = clothingItems.filter((item) => item._id != id);
+    //   return data;
+    // };
+    // console.log("Check what returns filter", testF(clothingItems));
+    setClothingItems((prevItems) => {
+      const filtered = prevItems.filter((item) => item._id !== id);
+      return filtered;
+    });
+    // console.log("clothingItems state after", clothingItems);
     closeActiveModal();
   };
 
@@ -131,6 +147,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           handleCloseModal={closeActiveModal}
+          onDeleteCard={handleDeleteItem}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>
