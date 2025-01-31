@@ -13,6 +13,7 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
+import { getItems } from "../../utils/api.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -27,7 +28,8 @@ function App() {
   });
   console.log("Weather Data", weatherData);
 
-  const [clothingItems, setClothingItems] = useState([...defaultClothingItems]);
+  // const [clothingItems, setClothingItems] = useState([...defaultClothingItems]);
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
@@ -93,6 +95,16 @@ function App() {
       .catch((error) => {
         console.error("Error fetching weather data", error);
       });
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        console.log("logging data", data);
+        setClothingItems([...data]);
+        console.log("Check ClothingIems state", clothingItems);
+      })
+      .catch(console.error);
   }, []);
 
   console.log("Staut of Loading after", isWeatherLoaded);
