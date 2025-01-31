@@ -13,7 +13,7 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
-import { getItems, deleteItem } from "../../utils/api.js";
+import { getItems, deleteItem, addItem } from "../../utils/api.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -57,10 +57,14 @@ function App() {
     setActiveModal("");
   };
 
-  const handleAddItemSubmit = ({ name, weather, imgUrl }) => {
+  const handleAddItemSubmit = ({ name, weather, imageUrl }) => {
     // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
+    console.log("Submitting...", { name, weather, imageUrl });
+    addItem({ name, weather, imageUrl }).then((res) => {
+      console.log("After adding it", res);
+    });
     setClothingItems((prevItems) => [
-      { name, link: imgUrl, weather },
+      { name, imageUrl, weather },
       ...prevItems,
     ]);
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);

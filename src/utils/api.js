@@ -14,4 +14,19 @@ function deleteItem(id) {
   });
 }
 
-export { getItems, deleteItem };
+function addItem({ name, weather, imageUrl }) {
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: name,
+      weather: weather,
+      imageUrl: imageUrl,
+    }),
+  }).then((res) => {
+    console.log("cargo", res);
+    return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
+  });
+}
+
+export { getItems, deleteItem, addItem };
