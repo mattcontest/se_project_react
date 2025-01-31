@@ -6,7 +6,7 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const weatherOption = weatherOptions.filter((option) => {
-    console.log("Checking the prop", currentTemperatureUnit);
+    // console.log("Checking the prop", currentTemperatureUnit);
 
     return (
       option.day === weatherData.isDay &&
@@ -21,7 +21,7 @@ function WeatherCard({ weatherData }) {
     currentWeather = weatherOption[0];
   }
 
-  console.log("Check wdata", weatherData);
+  // console.log("Check wdata", weatherData);
 
   return (
     <section className="weather-card">

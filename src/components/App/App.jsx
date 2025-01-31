@@ -13,7 +13,7 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
-import { getItems } from "../../utils/api.js";
+import { getItems, deleteItem } from "../../utils/api.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -26,7 +26,7 @@ function App() {
     condition: "",
     isDay: Boolean,
   });
-  console.log("Weather Data", weatherData);
+  // console.log("Weather Data", weatherData);
 
   // const [clothingItems, setClothingItems] = useState([...defaultClothingItems]);
   const [clothingItems, setClothingItems] = useState([]);
@@ -37,7 +37,7 @@ function App() {
     setCurrentTempereatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
   };
 
-  console.log("Stauts of Loading", isWeatherLoaded);
+  // console.log("Stauts of Loading", isWeatherLoaded);
 
   // console.log("Current temperature unit", currentTemperatureUnit);
 
@@ -74,10 +74,23 @@ function App() {
     //   return data;
     // };
     // console.log("Check what returns filter", testF(clothingItems));
-    setClothingItems((prevItems) => {
-      const filtered = prevItems.filter((item) => item._id !== id);
-      return filtered;
-    });
+    deleteItem(id)
+      .then((res) => {
+        console.log("Here's at the end:", res);
+      })
+      .then(
+        setClothingItems((prevItems) => {
+          const filtered = prevItems.filter((item) => item._id !== id);
+          return filtered;
+        }),
+        console.log("Succesfully deleted", id)
+      );
+
+    // setClothingItems((prevItems) => {
+    //   const filtered = prevItems.filter((item) => item._id !== id);
+    //   return filtered;
+    // });
+
     // console.log("clothingItems state after", clothingItems);
     closeActiveModal();
   };
@@ -87,7 +100,7 @@ function App() {
       .then((data) => {
         // console.log(data);
         const filterData = filterWeatherData(data);
-        console.log("Cargo", filterData);
+        // console.log("Cargo", filterData);
         setWeatherData(filterData);
         setIsWeatherLoaded(true);
         // console.log("Status of loading", isWeatherLoaded);
@@ -100,14 +113,14 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log("logging data", data);
+        // console.log("logging data", data);
         setClothingItems([...data]);
-        console.log("Check ClothingIems state", clothingItems);
+        // console.log("Check ClothingIems state", clothingItems);
       })
       .catch(console.error);
   }, []);
 
-  console.log("Staut of Loading after", isWeatherLoaded);
+  // console.log("Staut of Loading after", isWeatherLoaded);
 
   return (
     <CurrentTemperatureUnitContext.Provider
