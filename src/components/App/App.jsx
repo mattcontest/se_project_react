@@ -62,11 +62,13 @@ function App() {
     console.log("Submitting...", { name, weather, imageUrl });
     addItem({ name, weather, imageUrl }).then((res) => {
       console.log("After adding it", res);
+      setClothingItems((prevItems) => [res, ...prevItems]);
     });
-    setClothingItems((prevItems) => [
-      { name, imageUrl, weather },
-      ...prevItems,
-    ]);
+    // setClothingItems((prevItems) => [
+    //   { name, imageUrl, weather },
+    //   ...prevItems,
+    // ]);
+
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
     closeActiveModal();
   };
@@ -157,6 +159,7 @@ function App() {
                   weatherData={weatherData}
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
                 />
               }
             />
