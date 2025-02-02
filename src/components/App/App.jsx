@@ -60,9 +60,10 @@ function App() {
   const handleAddItemSubmit = ({ name, weather, imageUrl }) => {
     // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
     console.log("Submitting...", { name, weather, imageUrl });
-    addItem({ name, weather, imageUrl }).then((res) => {
+    return addItem({ name, weather, imageUrl }).then((res) => {
       console.log("After adding it", res);
       setClothingItems((prevItems) => [res, ...prevItems]);
+      closeActiveModal();
     });
     // setClothingItems((prevItems) => [
     //   { name, imageUrl, weather },
@@ -70,7 +71,6 @@ function App() {
     // ]);
 
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
-    closeActiveModal();
   };
 
   const handleDeleteItem = (id) => {

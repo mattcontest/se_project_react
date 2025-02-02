@@ -27,10 +27,12 @@ export default function AddItemModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemSubmit({ name, weather, imageUrl });
-    setName("");
-    setImageUrl("");
-    setWeather("");
+    onAddItemSubmit({ name, weather, imageUrl }).then(() => {
+      console.log("Submitted succesfully, now cleaning up input values");
+      setName("");
+      setImageUrl("");
+      setWeather("");
+    });
   };
 
   //   console.log("Chec status of name", name);
