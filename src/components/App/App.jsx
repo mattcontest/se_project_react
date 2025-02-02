@@ -49,8 +49,24 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
-    // console.log("It's clicking");
   };
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    // Cleanup Function
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   const closeActiveModal = () => {
     // console.log("Does it work?");
