@@ -51,22 +51,22 @@ function App() {
     setActiveModal("add-garment");
   };
 
-  useEffect(() => {
-    if (!activeModal) return;
+  // useEffect(() => {
+  //   if (!activeModal) return;
 
-    const handleEscClose = (e) => {
-      if (e.key === "Escape") {
-        closeActiveModal();
-      }
-    };
+  //   const handleEscClose = (e) => {
+  //     if (e.key === "Escape") {
+  //       closeActiveModal();
+  //     }
+  //   };
 
-    document.addEventListener("keydown", handleEscClose);
+  //   document.addEventListener("keydown", handleEscClose);
 
-    // Cleanup Function
-    return () => {
-      document.removeEventListener("keydown", handleEscClose);
-    };
-  }, [activeModal]);
+  //   // Cleanup Function
+  //   return () => {
+  //     document.removeEventListener("keydown", handleEscClose);
+  //   };
+  // }, [activeModal]);
 
   const closeActiveModal = () => {
     // console.log("Does it work?");
@@ -198,6 +198,7 @@ function App() {
           card={selectedCard}
           handleCloseModal={closeActiveModal}
           onDeleteCard={handleDeleteItem}
+          isOpen={activeModal}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>
