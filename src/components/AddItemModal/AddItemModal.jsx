@@ -29,13 +29,17 @@ export default function AddItemModal({
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    onAddItemSubmit({ name, weather, imageUrl }).then(() => {
-      console.log("Submitted succesfully, now cleaning up input values");
-      setName("");
-      setImageUrl("");
-      setWeather("");
-      setIsLoading(false);
-    });
+    onAddItemSubmit({ name, weather, imageUrl })
+      .then(() => {
+        console.log("Submitted succesfully, now cleaning up input values");
+        setName("");
+        setImageUrl("");
+        setWeather("");
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
   };
 
   //   console.log("Chec status of name", name);

@@ -76,11 +76,15 @@ function App() {
   const handleAddItemSubmit = ({ name, weather, imageUrl }) => {
     // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
     console.log("Submitting...", { name, weather, imageUrl });
-    return addItem({ name, weather, imageUrl }).then((res) => {
-      console.log("After adding it", res);
-      setClothingItems((prevItems) => [res, ...prevItems]);
-      closeActiveModal();
-    });
+    return addItem({ name, weather, imageUrl })
+      .then((res) => {
+        console.log("After adding it", res);
+        setClothingItems((prevItems) => [res, ...prevItems]);
+        closeActiveModal();
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
     // setClothingItems((prevItems) => [
     //   { name, imageUrl, weather },
     //   ...prevItems,
@@ -105,8 +109,12 @@ function App() {
           const filtered = prevItems.filter((item) => item._id !== id);
           return filtered;
         }),
-        console.log("Succesfully deleted", id)
-      );
+        console.log("Succesfully deleted", id),
+        closeActiveModal()
+      )
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
 
     // setClothingItems((prevItems) => {
     //   const filtered = prevItems.filter((item) => item._id !== id);
@@ -114,7 +122,6 @@ function App() {
     // });
 
     // console.log("clothingItems state after", clothingItems);
-    closeActiveModal();
   };
 
   useEffect(() => {
