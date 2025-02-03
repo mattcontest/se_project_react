@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 import close_btn from "../../assets/button-close-transparent.svg";
-import useModalClose from "../useModalClose/useModalClose";
+import useModalClose from "../UseModalClose/UseModalClose";
 
 function ItemModal({
   activeModal,

@@ -37,12 +37,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8"
     },
     {
-      "_id": 6,
-      "name": "Jacket",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad"
-    },
-    {
       "_id": 7,
       "name": "Jeans",
       "weather": "warm",
@@ -59,12 +53,6 @@
       "name": "Sandals",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sandals.png?etag=9bea85a77c0306586d2b71a33b626d41"
-    },
-    {
-      "_id": 10,
-      "name": "Scarf",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Scarf.png?etag=74efbee93810c926b5507e862c6cb76c"
     },
     {
       "_id": 11,
@@ -101,6 +89,78 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "Diago",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/777729c122c987fe/Large-795637V4FV12919_A.jpg?v=2",
+      "_id": 19
+    },
+    {
+      "name": "Cobble",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/5964525c10ad3ff0/Large-776209V3BD12919_A.jpg?v=4",
+      "_id": 22
+    },
+    {
+      "name": "Virgle",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/2bd3853447569446/Large-755863V2HL12077_A.jpg?v=3",
+      "_id": 23
+    },
+    {
+      "name": "Kalimero",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/43bdc576b5fc0501/Large-715021V2BJ02633_A.jpg?v=1",
+      "_id": 24
+    },
+    {
+      "name": "Mini",
+      "weather": "cold",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.bergdorfgoodman.com%2Ff_auto%2Cq_auto%3Alow%2Car_5%3A7%2Cc_fill%2Cdpr_2.0%2Cw_720%2F01%2Fbg_4113331_100324_m&f=1&nofb=1&ipt=7ef2c46da7a9bea66290590979adfb2db6b6e25b594bf3e198a0bb23ef4e2f15&ipo=images",
+      "_id": 25
+    },
+    {
+      "name": "Large",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/2a61ef246c5655a3/Large-805232V3RQ29313_A.jpg?v=1",
+      "_id": 26
+    },
+    {
+      "name": "Bob",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
+      "_id": 27
+    },
+    {
+      "name": "Mini",
+      "weather": "cold",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.bergdorfgoodman.com%2Ff_auto%2Cq_auto%3Alow%2Car_5%3A7%2Cc_fill%2Cdpr_2.0%2Cw_720%2F01%2Fbg_4113331_100324_m&f=1&nofb=1&ipt=7ef2c46da7a9bea66290590979adfb2db6b6e25b594bf3e198a0bb23ef4e2f15&ipo=images",
+      "_id": 29
+    },
+    {
+      "name": "Bottega",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/43bdc576b5fc0501/Large-715021V2BJ02633_A.jpg?v=1",
+      "_id": 30
+    },
+    {
+      "name": "Bob I",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
+      "_id": 31
+    },
+    {
+      "name": "Bob II",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
+      "_id": 33
+    },
+    {
+      "name": "Bob II",
+      "weather": "cold",
+      "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
+      "_id": 34
     }
   ]
 }
