@@ -76,15 +76,11 @@ function App() {
   const handleAddItemSubmit = ({ name, weather, imageUrl }) => {
     // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
     console.log("Submitting...", { name, weather, imageUrl });
-    return addItem({ name, weather, imageUrl })
-      .then((res) => {
-        console.log("After adding it", res);
-        setClothingItems((prevItems) => [res, ...prevItems]);
-        closeActiveModal();
-      })
-      .catch((error) => {
-        console.error("Error: ", error);
-      });
+    return addItem({ name, weather, imageUrl }).then((res) => {
+      console.log("After adding it", res);
+      setClothingItems((prevItems) => [res, ...prevItems]);
+      closeActiveModal();
+    });
     // setClothingItems((prevItems) => [
     //   { name, imageUrl, weather },
     //   ...prevItems,
