@@ -13,6 +13,7 @@ export default function AddItemModal({
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -27,11 +28,13 @@ export default function AddItemModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     onAddItemSubmit({ name, weather, imageUrl }).then(() => {
       console.log("Submitted succesfully, now cleaning up input values");
       setName("");
       setImageUrl("");
       setWeather("");
+      setIsLoading(false);
     });
   };
 
@@ -39,7 +42,7 @@ export default function AddItemModal({
   return (
     <ModalWithForm
       title={title}
-      buttonText={buttonText}
+      buttonText={isLoading ? "Loading.." : buttonText}
       activeModal={activeModal}
       handleCloseModal={handleCloseModal}
       isOpen={isOpen}
