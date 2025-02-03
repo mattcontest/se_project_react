@@ -1,5 +1,6 @@
 import "./ModalWithForm.css";
 import close_btn from "../../assets/close-btn.svg";
+import useModalClose from "../useModalClose/useModalClose";
 
 function ModalWithForm({
   children,
@@ -11,6 +12,8 @@ function ModalWithForm({
   onSubmit,
 }) {
   // console.log("Checking isOpen Prop", isOpen);
+  useModalClose(isOpen, handleCloseModal);
+
   return (
     <div className={`modal ${isOpen && "modal_open"}`}>
       <div className="modal__content">
