@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 import close_btn from "../../assets/button-close-transparent.svg";
-import useModalClose from "../UseModalClose/UseModalClose";
+import UseModalClose from "../../utils/UseModalClose";
 
 function ItemModal({
   activeModal,
@@ -9,7 +9,7 @@ function ItemModal({
   onDeleteCard,
   isOpen,
 }) {
-  useModalClose(isOpen, handleCloseModal);
+  UseModalClose(isOpen, handleCloseModal);
   return (
     <div className={`modal ${activeModal === "preview" && "modal_open"}`}>
       <div className="modal__content modal__content_type_image">

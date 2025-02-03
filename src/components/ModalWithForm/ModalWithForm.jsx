@@ -1,6 +1,6 @@
 import "./ModalWithForm.css";
 import close_btn from "../../assets/close-btn.svg";
-import UseModalClose from "../UseModalClose/UseModalClose";
+import UseModalClose from "../../utils/UseModalClose";
 
 function ModalWithForm({
   children,
