@@ -4,6 +4,9 @@ import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit";
+
 function Header({ handleAddClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -15,6 +18,8 @@ function Header({ handleAddClick, weatherData }) {
   const handleChange = () => {
     setChecked(!checked);
   };
+
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   const Checkbox = ({ label, value, onChange, labelCss, inputCss }) => {
     return (

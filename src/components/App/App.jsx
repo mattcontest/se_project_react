@@ -157,11 +157,7 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header
-            handleAddClick={handleAddClick}
-            weatherData={weatherData}
-            currentTemperatureUnit={currentTemperatureUnit}
-          />
+          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
           <Routes>
             <Route
               path="/"
@@ -169,7 +165,6 @@ function App() {
                 <Main
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
-                  currentTemperatureUnit={currentTemperatureUnit}
                   clothingItems={clothingItems}
                 />
               }
