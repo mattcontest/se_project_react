@@ -17,9 +17,9 @@ function ClothesSection({
 
       <ul className="clothes-section__items">
         {clothingItems
-          .filter((item) => {
-            return item.weather === weatherData.type;
-          })
+          // .filter((item) => {
+          //   return item.weather === weatherData.type;
+          // })
           .map((item) => {
             return (
               <ItemCard onCardClick={onCardClick} key={item._id} item={item} />

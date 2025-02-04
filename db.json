@@ -131,36 +131,6 @@
       "weather": "cold",
       "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
       "_id": 27
-    },
-    {
-      "name": "Mini",
-      "weather": "cold",
-      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.bergdorfgoodman.com%2Ff_auto%2Cq_auto%3Alow%2Car_5%3A7%2Cc_fill%2Cdpr_2.0%2Cw_720%2F01%2Fbg_4113331_100324_m&f=1&nofb=1&ipt=7ef2c46da7a9bea66290590979adfb2db6b6e25b594bf3e198a0bb23ef4e2f15&ipo=images",
-      "_id": 29
-    },
-    {
-      "name": "Bottega",
-      "weather": "cold",
-      "imageUrl": "https://bottega-veneta.dam.kering.com/m/43bdc576b5fc0501/Large-715021V2BJ02633_A.jpg?v=1",
-      "_id": 30
-    },
-    {
-      "name": "Bob I",
-      "weather": "cold",
-      "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
-      "_id": 31
-    },
-    {
-      "name": "Bob II",
-      "weather": "cold",
-      "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
-      "_id": 32
-    },
-    {
-      "name": "Bag II",
-      "weather": "cold",
-      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.bergdorfgoodman.com%2Ff_auto%2Cq_auto%3Alow%2Car_5%3A7%2Cc_fill%2Cdpr_2.0%2Cw_720%2F01%2Fbg_4113331_100324_m&f=1&nofb=1&ipt=7ef2c46da7a9bea66290590979adfb2db6b6e25b594bf3e198a0bb23ef4e2f15&ipo=images",
-      "_id": 33
     }
   ]
 }
