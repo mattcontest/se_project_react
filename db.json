@@ -121,16 +121,16 @@
       "_id": 25
     },
     {
-      "name": "Large",
+      "name": "Large II",
       "weather": "cold",
       "imageUrl": "https://bottega-veneta.dam.kering.com/m/2a61ef246c5655a3/Large-805232V3RQ29313_A.jpg?v=1",
-      "_id": 26
+      "_id": 28
     },
     {
-      "name": "Bob",
+      "name": "Bob II",
       "weather": "cold",
       "imageUrl": "https://bottega-veneta.dam.kering.com/m/86677f5f8e5d005/Large-805773V4FV18803_A.jpg?v=2",
-      "_id": 27
+      "_id": 29
     }
   ]
 }
