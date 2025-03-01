@@ -46,7 +46,7 @@ export default function RegistrationModal({
       isOpen={isOpen}
       onSubmit={onSignupSubmit}
     >
-      <label htmlFor="email" className="modal__label modal_label_name">
+      <label htmlFor="email" className="modal__label modal_label_registration">
         Email{""}
         <input
           type="text"
@@ -55,7 +55,10 @@ export default function RegistrationModal({
           placeholder="Email"
         />
       </label>
-      <label htmlFor="password" className="modal__label modal_label_name">
+      <label
+        htmlFor="password"
+        className="modal__label modal_label_registration"
+      >
         Password{""}
         <input
           type="text"
@@ -64,7 +67,7 @@ export default function RegistrationModal({
           placeholder="Email"
         />
       </label>
-      <label htmlFor="name" className="modal__label modal_label_name">
+      <label htmlFor="name" className="modal__label modal_label_registration">
         Name{""}
         <input
           type="text"
@@ -73,7 +76,10 @@ export default function RegistrationModal({
           placeholder="Email"
         />
       </label>
-      <label htmlFor="avatar" className="modal__label modal_label_name">
+      <label
+        htmlFor="avatar"
+        className="modal__label modal_label_registration modal_label_last_element"
+      >
         Avatar URL{""}
         <input
           type="text"
