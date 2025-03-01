@@ -11,6 +11,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
+import RegistrationModal from "../RegistrationModal/RegistrationModal.jsx";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
@@ -51,6 +52,11 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleLoginClick = () => {
+    console.log("Clicked Signup");
+    setActiveModal("signup");
+  };
+
   // useEffect(() => {
   //   if (!activeModal) return;
 
@@ -87,6 +93,11 @@ function App() {
     // ]);
 
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
+  };
+
+  const handleLoginSubmit = ({}) => {
+    //Todo
+    console.log("To complete soon");
   };
 
   const handleDeleteItem = (id) => {
@@ -153,7 +164,11 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            handleLoginClick={handleLoginClick}
+            weatherData={weatherData}
+          />
           <Routes>
             <Route
               path="/"
@@ -188,6 +203,14 @@ function App() {
           handleCloseModal={closeActiveModal}
           isOpen={activeModal === "add-garment"}
           onAddItemSubmit={handleAddItemSubmit}
+        />
+        <RegistrationModal
+          title="Signup"
+          buttonText="Signup"
+          activeModal={activeModal}
+          handleCloseModal={closeActiveModal}
+          isOpen={activeModal === "signup"}
+          onLoginSubmit={handleLoginSubmit}
         />
         <ItemModal
           activeModal={activeModal}
