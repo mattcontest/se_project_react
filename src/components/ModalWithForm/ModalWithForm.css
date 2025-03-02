@@ -186,6 +186,10 @@
   font-weight: 700;
 } */
 
+.modal_label_login {
+  margin-bottom: 24px;
+}
+
 .modal__login_btn {
   width: 80px;
   height: 40px;
@@ -198,6 +202,10 @@
   border: none;
 }
 
+.modal__login_btn:hover {
+  opacity: 60%;
+}
+
 .modal__signup_btn {
   width: 86px;
   height: 40px;
@@ -207,4 +215,8 @@
   font-weight: 700;
   background-color: transparent;
   border: none;
+}
+
+.modal__signup_btn:hover {
+  opacity: 60%;
 }
