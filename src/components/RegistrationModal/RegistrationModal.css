@@ -6,16 +6,6 @@
   margin-bottom: 30px;
 }
 
-/* .modal__submit {
-} */
-
-.modal_submit_login {
-  width: 86px;
-  background-color: transparent;
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .modal__login_text {
   color: rgba(0, 0, 0, 0.5);
   line-height: 20px;
@@ -30,22 +20,24 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
+  background-color: transparent;
   border: none;
+}
+
+.modal__login:hover {
+  opacity: 60%;
+}
+.modal__signup:hover {
+  opacity: 60%;
 }
 
 .modal__signup {
   width: 80px;
-  /* width: 140px; */
   height: 40px;
-  /* padding-top: 8px; */
-  /* padding-right: 16px; */
-  /* padding-bottom: 8px; */
-  /* padding-left: 16px; */
   border-radius: 4px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-  /* background-color: rgba(0, 0, 0, 0.3); */
   background-color: rgba(0, 0, 0);
   color: rgba(255, 255, 255, 1);
   border: none;

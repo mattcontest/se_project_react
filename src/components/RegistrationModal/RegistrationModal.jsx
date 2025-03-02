@@ -41,7 +41,6 @@ export default function RegistrationModal({
     <ModalWithForm
       title={title}
       buttonText={buttonText}
-      secondButtonText="or Log In"
       activeModal={activeModal}
       handleCloseModal={handleCloseModal}
       isOpen={isOpen}
@@ -94,7 +93,7 @@ export default function RegistrationModal({
           <a className="modal__submit_text">{buttonText}</a>
         </button>
 
-        <button type="submit" className="modal__login modal_submit_login">
+        <button type="submit" className="modal__login">
           <a className="modal__login_text">or Log In</a>
         </button>
       </div>

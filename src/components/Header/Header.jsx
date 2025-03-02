@@ -7,7 +7,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit";
 
-function Header({ handleAddClick, weatherData, handleLoginClick }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  handleSignupClick,
+  handleLoginClick,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -60,9 +65,16 @@ function Header({ handleAddClick, weatherData, handleLoginClick }) {
       <button
         type="button"
         className="header__signup"
-        onClick={handleLoginClick}
+        onClick={handleSignupClick}
       >
         Signup
+      </button>
+      <button
+        type="button"
+        className="header__login"
+        onClick={handleLoginClick}
+      >
+        Login
       </button>
       <Link className="header__link" to="/profile">
         <div className="header__user-container">

@@ -43,6 +43,14 @@
   background-color: transparent;
   font-weight: 700;
 }
+.header__login {
+  /* margin-left: 20px; */
+  /* margin-left: auto; */
+  margin-right: 20px;
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+}
 
 .header__signup:hover {
   opacity: 70%;

@@ -12,6 +12,7 @@ import { coordinates, APIkey } from "../../utils/constants.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import RegistrationModal from "../RegistrationModal/RegistrationModal.jsx";
+import LoginModal from "../LoginModal/LoginModal.jsx";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
@@ -53,6 +54,10 @@ function App() {
   };
 
   const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const handleSignupClick = () => {
     console.log("Clicked Signup");
     setActiveModal("signup");
   };
@@ -166,6 +171,7 @@ function App() {
         <div className="page__content">
           <Header
             handleAddClick={handleAddClick}
+            handleSignupClick={handleSignupClick}
             handleLoginClick={handleLoginClick}
             weatherData={weatherData}
           />
@@ -211,6 +217,13 @@ function App() {
           handleCloseModal={closeActiveModal}
           isOpen={activeModal === "signup"}
           onLoginSubmit={handleLoginSubmit}
+        />
+        <LoginModal
+          title="Login"
+          buttonText="Login"
+          activeModal={activeModal}
+          handleCloseModal={closeActiveModal}
+          isOpen={activeModal === "login"}
         />
         <ItemModal
           activeModal={activeModal}
