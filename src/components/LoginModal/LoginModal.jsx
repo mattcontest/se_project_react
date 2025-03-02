@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./LoginModal.css";
+// import "./LoginModal.css";
 
 export default function LoginModal({
   title,
@@ -47,6 +47,15 @@ export default function LoginModal({
           placeholder="Password"
         />
       </label>
+      <div className="button__container">
+        <button type="submit" className="modal__login_btn">
+          <a className="modal__submit_text">{buttonText}</a>
+        </button>
+
+        <button type="submit" className="modal__signup_btn">
+          <a className="modal__login_text">or Sign Up</a>
+        </button>
+      </div>
     </ModalWithForm>
   );
 }
