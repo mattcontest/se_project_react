@@ -10,6 +10,7 @@ function ModalWithForm({
   handleCloseModal,
   isOpen,
   onSubmit,
+  secondButtonText = "",
 }) {
   // console.log("Checking isOpen Prop", isOpen);
   useModalClose(isOpen, handleCloseModal);
@@ -27,9 +28,19 @@ function ModalWithForm({
         </button>
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit">
-            <a className="modal__submit_text">{buttonText}</a>
-          </button>
+          {/* <div className="button__container">
+            <button type="submit" className="modal__submit">
+              <a className="modal__submit_text">{buttonText}</a>
+            </button>
+            {secondButtonText?.length > 0 && (
+              <button
+                type="submit"
+                className="modal__submit modal_submit_login"
+              >
+                <a className="modal__submit_second_text">{secondButtonText}</a>
+              </button>
+            )}
+          </div> */}
         </form>
       </div>
     </div>

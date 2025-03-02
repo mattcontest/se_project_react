@@ -41,6 +41,7 @@ export default function RegistrationModal({
     <ModalWithForm
       title={title}
       buttonText={buttonText}
+      secondButtonText="or Log In"
       activeModal={activeModal}
       handleCloseModal={handleCloseModal}
       isOpen={isOpen}
@@ -49,7 +50,7 @@ export default function RegistrationModal({
       <label htmlFor="email" className="modal__label modal_label_registration">
         Email{""}
         <input
-          type="text"
+          type="email"
           className="modal__input"
           id="email"
           placeholder="Email"
@@ -61,10 +62,10 @@ export default function RegistrationModal({
       >
         Password{""}
         <input
-          type="text"
+          type="password"
           className="modal__input"
-          id="email"
-          placeholder="Email"
+          id="password"
+          placeholder="Password"
         />
       </label>
       <label htmlFor="name" className="modal__label modal_label_registration">
@@ -72,8 +73,8 @@ export default function RegistrationModal({
         <input
           type="text"
           className="modal__input"
-          id="email"
-          placeholder="Email"
+          id="name"
+          placeholder="Name"
         />
       </label>
       <label
@@ -82,12 +83,21 @@ export default function RegistrationModal({
       >
         Avatar URL{""}
         <input
-          type="text"
+          type="url"
           className="modal__input"
           id="email"
-          placeholder="Email"
+          placeholder="Avatar"
         />
       </label>
+      <div className="button__container">
+        <button type="submit" className="modal__signup">
+          <a className="modal__submit_text">{buttonText}</a>
+        </button>
+
+        <button type="submit" className="modal__login modal_submit_login">
+          <a className="modal__login_text">or Log In</a>
+        </button>
+      </div>
     </ModalWithForm>
   );
 }
