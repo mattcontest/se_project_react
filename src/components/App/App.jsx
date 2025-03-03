@@ -17,6 +17,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -32,13 +33,13 @@ function App() {
   // console.log("Weather Data", weatherData);
 
   // const [clothingItems, setClothingItems] = useState([...defaultClothingItems]);
-  const [userData, setUserData] = useState({ username: "", email: "" });
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
+  const [currentUser, setCurrentUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleToggleSwitchChange = () => {
     setCurrentTempereatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
   };
@@ -195,12 +196,14 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    weatherData={weatherData}
-                    onCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                    handleAddClick={handleAddClick}
-                  />
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    <Profile
+                      weatherData={weatherData}
+                      onCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      handleAddClick={handleAddClick}
+                    />
+                  </ProtectedRoute>
                 }
               />
             </Routes>
