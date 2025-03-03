@@ -6,7 +6,7 @@ function SideBar() {
     <div className="sidebar">
       <section className="profile__sidebar">
         <img className="sidebar__avatar" src={avatar} alt="Default Avatar" />
-        <p>User Name</p>
+        <p>Terrnce Tegegne</p>
       </section>
       {/* <section className="profile__sidebar"> */}
       {/* <button> */}
@@ -14,7 +14,7 @@ function SideBar() {
       {/* </section> */}
       <section className="settings__sidebar">
         <button className="edit-profile">
-          <a className="btn_text">Edit Profile</a>
+          <a className="btn_text">Change profile data</a>
         </button>
         <button className="logout">
           <a className="btn_text">Log Out</a>
