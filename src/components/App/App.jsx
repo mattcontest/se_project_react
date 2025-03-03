@@ -105,9 +105,9 @@ function App() {
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
   };
 
-  const handleLoginSubmit = ({}) => {
+  const handleLoginSubmit = (userData) => {
     //Todo
-    console.log("To complete soon");
+    console.log("To complete soon", userData);
   };
 
   const handleDeleteItem = (id) => {
@@ -169,10 +169,10 @@ function App() {
   // console.log("Staut of Loading after", isWeatherLoaded);
 
   return (
-    <CurrentUserContext.Provider value={{}}>
-      <CurrentTemperatureUnitContext.Provider
-        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      >
+    <CurrentTemperatureUnitContext.Provider
+      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+    >
+      <CurrentUserContext.Provider value={{}}>
         <div className="page">
           <div className="page__content">
             <Header
@@ -241,8 +241,8 @@ function App() {
             isOpen={activeModal}
           />
         </div>
-      </CurrentTemperatureUnitContext.Provider>
-    </CurrentUserContext.Provider>
+      </CurrentUserContext.Provider>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 

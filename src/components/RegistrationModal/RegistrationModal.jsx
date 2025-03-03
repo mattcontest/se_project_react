@@ -8,7 +8,7 @@ export default function RegistrationModal({
   activeModal,
   handleCloseModal,
   isOpen,
-  onSignupSubmit,
+  onLoginSubmit,
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +37,11 @@ export default function RegistrationModal({
     setIsLoading(true);
   };
 
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    onLoginSubmit({ email, password, name, avatar });
+  };
+
   return (
     <ModalWithForm
       title={title}
@@ -44,7 +49,7 @@ export default function RegistrationModal({
       activeModal={activeModal}
       handleCloseModal={handleCloseModal}
       isOpen={isOpen}
-      onSubmit={onSignupSubmit}
+      onSubmit={onLoginSubmit}
     >
       <label htmlFor="email" className="modal__label modal_label_registration">
         Email{""}
@@ -53,6 +58,8 @@ export default function RegistrationModal({
           className="modal__input"
           id="email"
           placeholder="Email"
+          onChange={handleEmailChange}
+          value={email}
         />
       </label>
       <label
@@ -65,6 +72,8 @@ export default function RegistrationModal({
           className="modal__input"
           id="password"
           placeholder="Password"
+          onChange={handlePasswordChange}
+          value={password}
         />
       </label>
       <label htmlFor="name" className="modal__label modal_label_registration">
@@ -74,6 +83,8 @@ export default function RegistrationModal({
           className="modal__input"
           id="name"
           placeholder="Name"
+          onChange={handleNameChange}
+          value={name}
         />
       </label>
       <label
@@ -86,10 +97,16 @@ export default function RegistrationModal({
           className="modal__input"
           id="email"
           placeholder="Avatar"
+          onChange={handleAvatarChange}
+          value={avatar}
         />
       </label>
       <div className="button__container">
-        <button type="submit" className="modal__signup">
+        <button
+          type="submit"
+          className="modal__signup"
+          onClick={handleRegistration}
+        >
           <a className="modal__submit_text">{buttonText}</a>
         </button>
 
