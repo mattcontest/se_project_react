@@ -108,7 +108,7 @@ function App() {
     //Todo
     console.log("Login data before", userData.email, userData.password);
     if (!userData.email || !userData.password) {
-      return;
+      console.log("Error with password or Email");
     }
 
     loginUser({ email: userData.email, password: userData.password }).then(
@@ -181,7 +181,7 @@ function App() {
         // setUserAvatar(res.avatar);
       }
     });
-  }, []);
+  }, [isLoggedIn]);
 
   // useEffect(() => {
   //   console.log("Check State", currentUser);
@@ -272,6 +272,7 @@ function App() {
             activeModal={activeModal}
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "login"}
+            onSubmit={handleLoginSubmit}
           />
           <ItemModal
             activeModal={activeModal}

@@ -20,6 +20,11 @@ export default function LoginModal({
     setPassword(e.target.value);
   };
 
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({ email, password });
+  };
+
   return (
     <ModalWithForm
       title={title}
@@ -29,30 +34,42 @@ export default function LoginModal({
       handleCloseModal={handleCloseModal}
       loginModal={true}
     >
-      <label className="modal__label modal_label_login">
+      <label htmlFor="email" className="modal__label modal_label_login">
         Email{""}
         <input
           type="email"
           className="modal__input"
           id="email"
+          value={email}
           placeholder="Email"
+          onChange={handleEmailChange}
         />
       </label>
-      <label className="modal__label modal_label_login">
+      <label htmlFor="password" className="modal__label modal_label_login">
         Password{""}
         <input
           type="password"
           className="modal__input"
+          value={password}
           id="password"
           placeholder="Password"
+          onChange={handlePasswordChange}
         />
       </label>
       <div className="button__container">
-        <button type="submit" className="modal__login_btn">
+        <button
+          type="submit"
+          className="modal__login_btn"
+          onClick={handleLoginSubmit}
+        >
           <a className="modal__submit_text">{buttonText}</a>
         </button>
 
-        <button type="submit" className="modal__signup_btn">
+        <button
+          type="submit"
+          className="modal__signup_btn"
+          onClick={handleLoginSubmit}
+        >
           <a className="modal__login_text">or Sign Up</a>
         </button>
       </div>

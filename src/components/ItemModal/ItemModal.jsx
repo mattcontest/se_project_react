@@ -2,6 +2,9 @@ import "./ItemModal.css";
 import close_btn from "../../assets/button-close-transparent.svg";
 import useModalClose from "../../utils/UseModalClose";
 
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
+
 function ItemModal({
   activeModal,
   card,
@@ -10,6 +13,10 @@ function ItemModal({
   isOpen,
 }) {
   useModalClose(isOpen, handleCloseModal);
+  const currentUser = useContext(CurrentUserContext);
+  const isOwn = card.owner._id === currentUser._id;
+  console.log(isOwn);
+
   return (
     <div className={`modal ${activeModal === "preview" && "modal_open"}`}>
       <div className="modal__content modal__content_type_image">
@@ -34,6 +41,7 @@ function ItemModal({
             </button>
           </div>
           <p className="modal__item_weather">Weather: {card.weather}</p>
+          <p className="modal__item_weather">Weather: {currentUser?.name}</p>
         </div>
       </div>
     </div>
