@@ -6,6 +6,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Header({
   handleAddClick,
@@ -25,6 +26,7 @@ function Header({
   };
 
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const currentUser = useContext(CurrentUserContext);
 
   const Checkbox = ({ label, value, onChange, labelCss, inputCss }) => {
     return (
@@ -78,7 +80,7 @@ function Header({
       </button>
       <Link className="header__link" to="/profile">
         <div className="header__user-container">
-          <p className="header__username">Terrance User</p>
+          <p className="header__username">{currentUser}</p>
           <img src={avatar} alt="Terrence" className="header__avatar" />
         </div>
       </Link>
