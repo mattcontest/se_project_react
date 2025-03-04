@@ -18,7 +18,8 @@ import Profile from "../Profile/Profile.jsx";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
-import { registerUser, loginUser } from "../../utils/auth.js";
+import { registerUser, loginUser, getUserInfo } from "../../utils/auth.js";
+// import auth from "../../../../se_project_express/middlewares/auth.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -39,7 +40,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleToggleSwitchChange = () => {
     setCurrentTempereatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
@@ -168,6 +169,23 @@ function App() {
 
     // console.log("clothingItems state after", clothingItems);
   };
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (!jwt) {
+      return;
+    }
+    getUserInfo(jwt).then((res) => {
+      console.log("Check response from jwt", res);
+      if (res) {
+        setCurrentUser(res.name);
+      }
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   console.log("Check State", currentUser);
+  // }, [currentUser]);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)

@@ -33,3 +33,15 @@ export const loginUser = (userData) => {
     return checkResponse(res);
   });
 };
+
+export const getUserInfo = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  });
+};
