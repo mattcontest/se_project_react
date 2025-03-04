@@ -15,7 +15,7 @@ export const registerUser = (userData) => {
       password: userData.password,
     }),
   }).then((res) => {
-    checkResponse(res);
+    return checkResponse(res);
   });
 };
 
@@ -30,6 +30,6 @@ export const loginUser = (userData) => {
       password: userData.password,
     }),
   }).then((res) => {
-    checkResponse(res);
+    return checkResponse(res);
   });
 };

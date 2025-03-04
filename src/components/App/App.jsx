@@ -18,6 +18,7 @@ import Profile from "../Profile/Profile.jsx";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
+import { registerUser } from "../../utils/auth.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -108,6 +109,13 @@ function App() {
   const handleLoginSubmit = (userData) => {
     //Todo
     console.log("To complete soon", userData);
+    registerUser(userData).then((res) => {
+      console.log("check", res);
+      if (res) {
+        console.log("After registration", res);
+        setActiveModal("");
+      }
+    });
   };
 
   const handleDeleteItem = (id) => {
