@@ -84,7 +84,7 @@ function Header({
             {currentUser ? currentUser.name : "Guest"}
           </p>
           <img
-            src={currentUser.avatar}
+            src={currentUser?.avatar ? currentUser.avatar : avatar}
             alt="Terrence"
             className="header__avatar"
           />

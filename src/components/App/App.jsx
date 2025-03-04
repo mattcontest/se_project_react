@@ -93,7 +93,7 @@ function App() {
     console.log("Submitting...", { name, weather, imageUrl });
     return addItem({ name, weather, imageUrl }).then((res) => {
       console.log("After adding it", res);
-      setClothingItems((prevItems) => [res, ...prevItems]);
+      setClothingItems((prevItems) => [res.data, ...prevItems]);
       closeActiveModal();
     });
     // setClothingItems((prevItems) => [
