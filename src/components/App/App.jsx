@@ -18,7 +18,7 @@ import Profile from "../Profile/Profile.jsx";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
-import { registerUser } from "../../utils/auth.js";
+import { registerUser, loginUser } from "../../utils/auth.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -108,11 +108,30 @@ function App() {
 
   const handleLoginSubmit = (userData) => {
     //Todo
+    console.log("Login data before", userData.email, userData.password);
+    if (!userData.email || !userData.password) {
+      return;
+    }
+
+    loginUser({ email: userData.email, password: userData.password }).then(
+      (res) => {
+        console.log("check", res);
+        if (res) {
+          setActiveModal("");
+          console.log("After login", res);
+        }
+      }
+    );
+  };
+
+  const handleSignupSubmit = (userData) => {
+    //Todo
     console.log("To complete soon", userData);
     registerUser(userData).then((res) => {
       console.log("check", res);
-      if (res) {
+      if (res._id) {
         console.log("After registration", res);
+        handleLoginSubmit(userData);
         setActiveModal("");
       }
     });
@@ -232,7 +251,7 @@ function App() {
             activeModal={activeModal}
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "signup"}
-            onLoginSubmit={handleLoginSubmit}
+            onSignupSubmit={handleSignupSubmit}
           />
           <LoginModal
             title="Login"

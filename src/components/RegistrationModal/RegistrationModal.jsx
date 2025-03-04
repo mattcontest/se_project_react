@@ -8,7 +8,7 @@ export default function RegistrationModal({
   activeModal,
   handleCloseModal,
   isOpen,
-  onLoginSubmit,
+  onSignupSubmit,
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +39,7 @@ export default function RegistrationModal({
 
   const handleRegistration = (e) => {
     e.preventDefault();
-    onLoginSubmit({ email, password, name, avatar });
+    onSignupSubmit({ email, password, name, avatar });
   };
 
   return (
@@ -49,7 +49,7 @@ export default function RegistrationModal({
       activeModal={activeModal}
       handleCloseModal={handleCloseModal}
       isOpen={isOpen}
-      onSubmit={onLoginSubmit}
+      // onSubmit={onSignupSubmit}
     >
       <label htmlFor="email" className="modal__label modal_label_registration">
         Email{""}

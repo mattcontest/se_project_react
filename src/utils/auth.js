@@ -20,7 +20,7 @@ export const registerUser = (userData) => {
 };
 
 export const loginUser = (userData) => {
-  return fetch(`${BASE_URL}/login`, {
+  return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
