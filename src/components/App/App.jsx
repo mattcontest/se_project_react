@@ -19,7 +19,6 @@ import { getItems, deleteItem, addItem } from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import { registerUser, loginUser, getUserInfo } from "../../utils/auth.js";
-// import auth from "../../../../se_project_express/middlewares/auth.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -32,15 +31,14 @@ function App() {
     condition: "",
     isDay: Boolean,
   });
-  // console.log("Weather Data", weatherData);
 
-  // const [clothingItems, setClothingItems] = useState([...defaultClothingItems]);
   const navigate = useNavigate();
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState("");
+  // const [userAvatar, setUserAvatar] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleToggleSwitchChange = () => {
     setCurrentTempereatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
@@ -87,7 +85,6 @@ function App() {
   // }, [activeModal]);
 
   const closeActiveModal = () => {
-    // console.log("Does it work?");
     setActiveModal("");
   };
 
@@ -178,7 +175,8 @@ function App() {
     getUserInfo(jwt).then((res) => {
       console.log("Check response from jwt", res);
       if (res) {
-        setCurrentUser(res.name);
+        setCurrentUser(res);
+        // setUserAvatar(res.avatar);
       }
     });
   }, []);
@@ -190,12 +188,10 @@ function App() {
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
-        // console.log(data);
         const filterData = filterWeatherData(data);
         // console.log("Cargo", filterData);
         setWeatherData(filterData);
         setIsWeatherLoaded(true);
-        // console.log("Status of loading", isWeatherLoaded);
       })
       .catch((error) => {
         console.error("Error fetching weather data", error);
@@ -205,14 +201,10 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        // console.log("logging data", data);
         setClothingItems([...data]);
-        // console.log("Check ClothingIems state", clothingItems);
       })
       .catch(console.error);
   }, []);
-
-  // console.log("Staut of Loading after", isWeatherLoaded);
 
   return (
     <CurrentTemperatureUnitContext.Provider
