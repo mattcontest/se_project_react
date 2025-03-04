@@ -117,6 +117,7 @@ function App() {
         if (res) {
           localStorage.setItem("jwt", res.token);
           setActiveModal("");
+          setIsLoggedIn(true);
           console.log("After login", res);
         }
       }
@@ -176,6 +177,7 @@ function App() {
       console.log("Check response from jwt", res);
       if (res) {
         setCurrentUser(res);
+        setIsLoggedIn(true);
         // setUserAvatar(res.avatar);
       }
     });
