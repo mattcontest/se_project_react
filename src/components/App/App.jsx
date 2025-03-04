@@ -117,6 +117,7 @@ function App() {
       (res) => {
         console.log("check", res);
         if (res) {
+          localStorage.setItem("jwt", res.token);
           setActiveModal("");
           console.log("After login", res);
         }
