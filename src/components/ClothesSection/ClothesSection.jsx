@@ -10,7 +10,7 @@ function ClothesSection({
   handleAddClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log("Check currentUser from ClotheSection", currentUser);
+  // console.log("Check currentUser from ClotheSection", currentUser._id);
 
   return (
     <div className="clothes-section">
@@ -23,7 +23,9 @@ function ClothesSection({
 
       <ul className="clothes-section__items">
         {clothingItems
-          .filter((item) => item._id === currentUser._id)
+          .filter((item) => {
+            return item.owner?._id === currentUser._id;
+          })
           .map((item) => {
             return (
               <ItemCard onCardClick={onCardClick} key={item._id} item={item} />

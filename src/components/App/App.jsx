@@ -33,6 +33,7 @@ function App() {
   });
 
   const navigate = useNavigate();
+  const [itemsUpdated, setItemsUpdated] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -94,7 +95,8 @@ function App() {
     console.log("Submitting...", { name, weather, imageUrl });
     return addItem({ name, weather, imageUrl }).then((res) => {
       console.log("After adding it", res);
-      setClothingItems((prevItems) => [res.data, ...prevItems]);
+      // setClothingItems((prevItems) => [res.data, ...prevItems]);
+      setItemsUpdated((prev) => !prev);
       closeActiveModal();
     });
     // setClothingItems((prevItems) => [
@@ -104,6 +106,14 @@ function App() {
 
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
   };
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems([...data]);
+      })
+      .catch(console.error);
+  }, [itemsUpdated]);
 
   const handleLoginSubmit = (userData) => {
     //Todo
@@ -175,18 +185,14 @@ function App() {
       setCheckingAuth(false);
       return;
     }
-    getUserInfo(jwt)
-      .then((res) => {
-        console.log("Check response from jwt", res);
-        if (res) {
-          setCurrentUser(res);
-          setIsLoggedIn(true);
-          // setUserAvatar(res.avatar);
-        }
-      })
-      .finally(() => {
-        setCheckingAuth(false);
-      });
+    getUserInfo(jwt).then((res) => {
+      console.log("Check response from jwt", res);
+      if (res) {
+        setCurrentUser(res);
+        setIsLoggedIn(true);
+        // setUserAvatar(res.avatar);
+      }
+    });
   }, [isLoggedIn]);
 
   // useEffect(() => {
@@ -212,7 +218,7 @@ function App() {
         setClothingItems([...data]);
       })
       .catch(console.error);
-  }, [clothingItems]);
+  }, []);
 
   return (
     <CurrentTemperatureUnitContext.Provider
