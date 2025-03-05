@@ -212,7 +212,7 @@ function App() {
         setClothingItems([...data]);
       })
       .catch(console.error);
-  }, []);
+  }, [clothingItems]);
 
   return (
     <CurrentTemperatureUnitContext.Provider
