@@ -10,7 +10,6 @@ function ClothesSection({
   handleAddClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  // console.log("Check currentUser from ClotheSection", currentUser._id);
 
   return (
     <div className="clothes-section">

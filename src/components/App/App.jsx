@@ -25,7 +25,6 @@ function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: `${isWeatherLoaded ? " " : "loading.."}` },
-    // temp: { F: `loading..` },
     city: "",
     type: "",
     condition: "",
@@ -182,7 +181,6 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (!jwt) {
-      setCheckingAuth(false);
       return;
     }
     getUserInfo(jwt).then((res) => {

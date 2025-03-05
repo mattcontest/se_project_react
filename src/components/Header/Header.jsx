@@ -49,13 +49,6 @@ function Header({
       </Link>
       <p className="header__date-and-location">{`${currentDate}, ${weatherData?.city}`}</p>
 
-      {/* <input type="checkbox" value="F" className="header__toggle_switch" /> */}
-      {/* <Checkbox
-        label="F/C"
-        inputCss="toggle_switch_input"
-        labelCss="header__toggle_switch"
-    /> */}
-
       <ToggleSwitch />
       <button
         type="button"
