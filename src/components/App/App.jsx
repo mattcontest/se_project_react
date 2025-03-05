@@ -38,6 +38,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState("");
+  // const [checkingAuth, setCheckingAuth] = useState(true);
   // const [userAvatar, setUserAvatar] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleToggleSwitchChange = () => {
@@ -171,16 +172,21 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (!jwt) {
+      setCheckingAuth(false);
       return;
     }
-    getUserInfo(jwt).then((res) => {
-      console.log("Check response from jwt", res);
-      if (res) {
-        setCurrentUser(res);
-        setIsLoggedIn(true);
-        // setUserAvatar(res.avatar);
-      }
-    });
+    getUserInfo(jwt)
+      .then((res) => {
+        console.log("Check response from jwt", res);
+        if (res) {
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+          // setUserAvatar(res.avatar);
+        }
+      })
+      .finally(() => {
+        setCheckingAuth(false);
+      });
   }, [isLoggedIn]);
 
   // useEffect(() => {
@@ -237,6 +243,7 @@ function App() {
                 path="/profile"
                 element={
                   <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    {" "}
                     <Profile
                       weatherData={weatherData}
                       onCardClick={handleCardClick}

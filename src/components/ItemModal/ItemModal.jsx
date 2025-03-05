@@ -14,8 +14,7 @@ function ItemModal({
 }) {
   useModalClose(isOpen, handleCloseModal);
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = card.owner._id === currentUser._id;
-  console.log(isOwn);
+  const isOwn = card.owner?._id === currentUser._id;
 
   return (
     <div className={`modal ${activeModal === "preview" && "modal_open"}`}>
@@ -31,17 +30,18 @@ function ItemModal({
         <div className="modal__container">
           <div className="modal__item_box">
             <p className="modal_item_title">{card.name}</p>
-            <button
-              className="modal__delete_button"
-              onClick={() => {
-                onDeleteCard(card._id);
-              }}
-            >
-              Delete
-            </button>
+            {isOwn && (
+              <button
+                className="modal__delete_button"
+                onClick={() => {
+                  onDeleteCard(card._id);
+                }}
+              >
+                Delete
+              </button>
+            )}
           </div>
           <p className="modal__item_weather">Weather: {card.weather}</p>
-          <p className="modal__item_weather">Weather: {currentUser?.name}</p>
         </div>
       </div>
     </div>
