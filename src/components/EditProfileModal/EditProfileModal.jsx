@@ -39,6 +39,7 @@ export default function EditProfileModal({
           type="text"
           className="modal__input"
           id="name"
+          value={name}
           placeholder="Name"
         />
       </label>
@@ -49,9 +50,15 @@ export default function EditProfileModal({
           type="text"
           className="modal__input"
           id="avatar"
+          value={avatar}
           placeholder="Avatar"
         />
       </label>
+      <div className="button__container">
+        <button className="modal__edit_btn" onClick={handleEditProfileSubmit}>
+          <a className="modal__submit_text">{buttonText}</a>
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

@@ -12,6 +12,7 @@ import { coordinates, APIkey } from "../../utils/constants.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import RegistrationModal from "../RegistrationModal/RegistrationModal.jsx";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
@@ -66,6 +67,10 @@ function App() {
   const handleSignupClick = () => {
     console.log("Clicked Signup");
     setActiveModal("signup");
+  };
+
+  const handleEditProfileClick = () => {
+    setActiveModal("edit-data");
   };
 
   // useEffect(() => {
@@ -253,6 +258,7 @@ function App() {
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
+                      handleEditProfileClick={handleEditProfileClick}
                     />
                   </ProtectedRoute>
                 }
@@ -284,6 +290,13 @@ function App() {
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "login"}
             onSubmit={handleLoginSubmit}
+          />
+          <EditProfileModal
+            title="Change profile data"
+            buttonText="Save changes"
+            activeModal={activeModal}
+            handleCloseModal={closeActiveModal}
+            isOpen={activeModal === "edit-data"}
           />
           <ItemModal
             activeModal={activeModal}
