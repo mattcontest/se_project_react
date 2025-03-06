@@ -33,6 +33,8 @@ export default function EditProfileModal({
     if (isOpen !== undefined) {
       console.log("Current User", currentUser);
     }
+    setName(currentUser.name);
+    setAvatar(currentUser.avatar);
   }, [isOpen]);
 
   return (
