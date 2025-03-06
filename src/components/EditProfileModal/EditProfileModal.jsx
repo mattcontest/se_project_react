@@ -17,7 +17,7 @@ export default function EditProfileModal({
   const currentUser = useContext(CurrentUserContext);
 
   const handleNameChange = (e) => {
-    setName(e.taget.value);
+    setName(e.target.value);
   };
 
   const handleAvatarChange = (e) => {

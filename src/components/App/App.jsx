@@ -19,7 +19,12 @@ import Profile from "../Profile/Profile.jsx";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
-import { registerUser, loginUser, getUserInfo } from "../../utils/auth.js";
+import {
+  registerUser,
+  loginUser,
+  getUserInfo,
+  editProfileInfo,
+} from "../../utils/auth.js";
 
 function App() {
   const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
@@ -149,6 +154,13 @@ function App() {
         handleLoginSubmit(userData);
         setActiveModal("");
       }
+    });
+  };
+
+  const handleEditProfileSubmit = (userData) => {
+    console.log("Check info before edit", userData);
+    return editProfileInfo(userData).then((res) => {
+      console.log("Check from edit profile change", res);
     });
   };
 
@@ -297,6 +309,7 @@ function App() {
             activeModal={activeModal}
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "edit-data"}
+            onSubmit={handleEditProfileSubmit}
           />
           <ItemModal
             activeModal={activeModal}

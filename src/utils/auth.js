@@ -45,3 +45,33 @@ export const getUserInfo = (token) => {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
 };
+
+export const editProfileInfo = (userData) => {
+  const token = localStorage.getItem("jwt");
+  if (!token) {
+    console.error("JWT Token not found or invalid");
+  }
+
+  if (!userData.name || !userData.avatar) {
+    console.log("Invalid input for either name or avatar");
+    return;
+  }
+
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      name: userData.name,
+      avatar: userData.avatar,
+    }),
+  }).then((res) => {
+    if (!res.ok) {
+      throw new Error("Failed to update user data");
+    }
+    // return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    return checkResponse(res);
+  });
+};
