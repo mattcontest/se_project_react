@@ -8,10 +8,7 @@ function SideBar({ handleEditProfileClick }) {
         <img className="sidebar__avatar" src={avatar} alt="Default Avatar" />
         <p>Terrnce Tegegne</p>
       </section>
-      {/* <section className="profile__sidebar"> */}
-      {/* <button> */}
-      {/* </button> */}
-      {/* </section> */}
+
       <section className="settings__sidebar">
         <button className="edit-profile" onClick={handleEditProfileClick}>
           <a className="btn_text">Change profile data</a>

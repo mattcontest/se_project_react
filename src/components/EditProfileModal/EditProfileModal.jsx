@@ -32,8 +32,9 @@ export default function EditProfileModal({
       activeModal={activeModal}
       isOpen={isOpen}
       handleCloseModal={handleCloseModal}
+      editProfileModal={true}
     >
-      <label htmlFor="text" className="modal__label">
+      <label htmlFor="text" className="modal__label modal_label_login">
         Name{""}
         <input
           type="text"
@@ -41,10 +42,11 @@ export default function EditProfileModal({
           id="name"
           value={name}
           placeholder="Name"
+          onChange={handleNameChange}
         />
       </label>
 
-      <label htmlFor="URL" className="modal__label">
+      <label htmlFor="URL" className="modal__label modal_label_login">
         Avatar{""}
         <input
           type="text"
@@ -52,10 +54,14 @@ export default function EditProfileModal({
           id="avatar"
           value={avatar}
           placeholder="Avatar"
+          onChange={handleAvatarChange}
         />
       </label>
       <div className="button__container">
-        <button className="modal__edit_btn" onClick={handleEditProfileSubmit}>
+        <button
+          className="modal__edit_btn modal__login_btn"
+          onClick={handleEditProfileSubmit}
+        >
           <a className="modal__submit_text">{buttonText}</a>
         </button>
       </div>

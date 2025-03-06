@@ -11,6 +11,7 @@ function ModalWithForm({
   isOpen,
   onSubmit,
   loginModal,
+  editProfileModal,
 }) {
   // console.log("Checking isOpen Prop", isOpen);
   useModalClose(isOpen, handleCloseModal);
@@ -18,7 +19,11 @@ function ModalWithForm({
   return (
     <div className={`modal ${isOpen && "modal_open"}`}>
       <div
-        className={`${loginModal ? "modal_login_content" : "modal__content"}`}
+        className={`${
+          loginModal || editProfileModal
+            ? "modal_login_content"
+            : "modal__content"
+        }`}
       >
         <h2 className="modal__title">{title}</h2>
         <button
