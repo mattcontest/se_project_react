@@ -164,8 +164,8 @@ function App() {
       if (res.name == userData.name) {
         setUserUpdated(true);
         closeActiveModal();
+        //Allowing time to refresh state in useEffect before resetting userUpdated state back to default
         setTimeout(() => setUserUpdated(false), 500);
-        // setUserUpdated(false);
       }
       console.log("Check from edit profile change", res);
     });
