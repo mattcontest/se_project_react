@@ -39,6 +39,7 @@ function App() {
 
   const navigate = useNavigate();
   const [itemsUpdated, setItemsUpdated] = useState(false);
+  const [userUpdated, setUserUpdated] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -160,9 +161,23 @@ function App() {
   const handleEditProfileSubmit = (userData) => {
     console.log("Check info before edit", userData);
     return editProfileInfo(userData).then((res) => {
+      if (res.name == userData.name) {
+        setUserUpdated(true);
+        closeActiveModal();
+        setTimeout(() => setUserUpdated(false), 500);
+        // setUserUpdated(false);
+      }
       console.log("Check from edit profile change", res);
     });
   };
+
+  // useEffect(() => {
+  //   // getItems()
+  //   //   .then((data) => {
+  //   //     setClothingItems([...data]);
+  //   //   })
+  //   //   .catch(console.error);
+  // }, [userUpdated]);
 
   const handleDeleteItem = (id) => {
     // console.log("Attempting deleting", id);
@@ -207,12 +222,10 @@ function App() {
         setIsLoggedIn(true);
         // setUserAvatar(res.avatar);
       }
+      //Resetting setUserUpdated to false after fetching user info
+      // setUserUpdated(false);
     });
-  }, [isLoggedIn]);
-
-  // useEffect(() => {
-  //   console.log("Check State", currentUser);
-  // }, [currentUser]);
+  }, [isLoggedIn, userUpdated]);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
