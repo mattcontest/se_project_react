@@ -52,3 +52,17 @@
   font-weight: 700;
   line-height: 24.8px;
 }
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 15px;
+}
+
+.profile__sidebar:hover {
+  opacity: 90%;
+}
+
+.sidebar_avatar:hover {
+  color: orange;
+}

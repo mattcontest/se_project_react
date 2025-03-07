@@ -165,7 +165,7 @@ function App() {
         setUserUpdated(true);
         closeActiveModal();
         //Allowing time to refresh state in useEffect before resetting userUpdated state back to default
-        setTimeout(() => setUserUpdated(false), 500);
+        // setTimeout(() => setUserUpdated(false), 500);
       }
       console.log("Check from edit profile change", res);
     });
@@ -223,7 +223,8 @@ function App() {
         // setUserAvatar(res.avatar);
       }
       //Resetting setUserUpdated to false after fetching user info
-      // setUserUpdated(false);
+      setUserUpdated(false);
+      console.log("How many times happen?");
     });
   }, [isLoggedIn, userUpdated]);
 
