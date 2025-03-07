@@ -11,6 +11,11 @@ function ClothesSection({
 }) {
   const currentUser = useContext(CurrentUserContext);
 
+  // const handleCardLike = ({id, isLiked})=>{
+  //   const token = localStorage.getItem("jwt");
+  //   !isLiked ?
+  // }
+
   return (
     <div className="clothes-section">
       <div className="clothes__section_tools">

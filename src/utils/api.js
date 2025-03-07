@@ -35,6 +35,31 @@ function addItem({ name, weather, imageUrl }) {
   }).then(checkResponse);
 }
 
+function addCardLike({ id }) {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    checkResponse(res);
+  });
+}
+function removeCardLike({ id }) {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    checkResponse(res);
+  });
+}
+
 function checkResponse(res) {
   if (res.ok) {
     console.log("cargo", res);
@@ -44,4 +69,11 @@ function checkResponse(res) {
   }
 }
 
-export { getItems, deleteItem, addItem, checkResponse };
+export {
+  getItems,
+  deleteItem,
+  addItem,
+  addCardLike,
+  removeCardLike,
+  checkResponse,
+};
