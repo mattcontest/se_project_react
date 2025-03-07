@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
-
 import "./App.css";
-import { defaultClothingItems } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants.js";
@@ -14,7 +11,7 @@ import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import RegistrationModal from "../RegistrationModal/RegistrationModal.jsx";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 import {
   getItems,
@@ -38,12 +35,11 @@ function App() {
     type: "",
     temp: { F: `${isWeatherLoaded ? " " : "loading.."}` },
     city: "",
-    type: "",
     condition: "",
     isDay: Boolean,
   });
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [itemsUpdated, setItemsUpdated] = useState(false);
   const [likeUpdated, setLikeUpdated] = useState(false);
   const [userUpdated, setUserUpdated] = useState(false);
