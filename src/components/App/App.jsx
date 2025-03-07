@@ -173,6 +173,14 @@ function App() {
       .catch(console.error);
   }, [itemsUpdated]);
 
+  const handleLogoutSubmit = () => {
+    localStorage.removeItem("jwt");
+    // navigate("/")
+    setIsLoggedIn(false);
+    setCurrentUser("");
+    console.log("Logged out!");
+  };
+
   const handleLoginSubmit = (userData) => {
     //Todo
     console.log("Login data before", userData.email, userData.password);
@@ -347,6 +355,7 @@ function App() {
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       handleEditProfileClick={handleEditProfileClick}
+                      handleLogoutSubmit={handleLogoutSubmit}
                     />
                   </ProtectedRoute>
                 }
