@@ -26,7 +26,9 @@ function ItemCard({ item, onCardClick, onCardLike }) {
     <li className="card">
       <div className="item__header">
         <h2 className="card__name">{item.name}</h2>
-        <button onClick={handleLike} className={itemLikeButton}></button>
+        {currentUser && (
+          <button onClick={handleLike} className={itemLikeButton}></button>
+        )}
       </div>
       <img
         className="card__image"
