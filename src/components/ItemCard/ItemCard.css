@@ -70,6 +70,9 @@
   cursor: pointer;
 }
 
+.liked {
+  background-image: url("../../assets/liked.svg");
+}
 /* .card__header { */
 /* width: 100%; */
 /* } */

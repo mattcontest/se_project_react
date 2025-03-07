@@ -11,7 +11,9 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   //   ? item.likes.some((id) => id === currentUser._id)
   //   : false;
 
-  const isLiked = item.likes.length > 0;
+  // const isLiked = item.likes.length > 0;
+  const isLiked = item.likes.some((id) => id === currentUser._id);
+  const itemLikeButton = `like__btn ${isLiked ? "liked" : ""}`;
 
   const handleLike = () => {
     console.log("Check item", item);
@@ -24,7 +26,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
     <li className="card">
       <div className="item__header">
         <h2 className="card__name">{item.name}</h2>
-        <button onClick={handleLike} className="like__btn"></button>
+        <button onClick={handleLike} className={itemLikeButton}></button>
       </div>
       <img
         className="card__image"
