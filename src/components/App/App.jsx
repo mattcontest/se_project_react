@@ -16,7 +16,12 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
-import { getItems, deleteItem, addItem } from "../../utils/api.js";
+import {
+  getItems,
+  deleteItem,
+  addItem,
+  removeCardLike,
+} from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import {
@@ -98,6 +103,23 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    !isLiked
+      ? addCardLike(id, token).then((updatedCard) => {
+          setClothingItems((cards) => {
+            cards.map((item) => (item._id === id ? updatedCard : item));
+          }).catch((err) => console.log(err));
+        })
+      : removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) => {
+              cards.map((item) => (item._id === id ? updatedCard : item));
+            });
+          })
+          .catch((err) => console.log(err));
   };
 
   const handleAddItemSubmit = ({ name, weather, imageUrl }) => {
