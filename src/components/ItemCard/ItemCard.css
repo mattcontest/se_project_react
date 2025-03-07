@@ -7,6 +7,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  /* border: solid gold; */
 }
 
 .card__image {
@@ -17,9 +18,14 @@
 
 .card__name {
   margin: 0;
-  position: absolute;
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid red; */
   height: 20px;
-  width: 91px;
+  /* width: 91px; */
+  width: 106px;
   padding-top: 2px;
   padding-right: 2px;
   padding-bottom: 2px;
@@ -34,3 +40,35 @@
   font-size: 16px;
   line-height: 20px;
 }
+
+.item__header {
+  /* border: solid red; */
+  display: flex;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  /* top: 10px; */
+  gap: 4px;
+}
+
+.like__btn {
+  /* display: none; */
+  width: 18px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  /* top: 15px; */
+  align-items: center;
+  margin-left: 4px;
+  background-image: url("../../assets/like.svg");
+  background-color: transparent;
+  background-size: cover;
+  height: 15px;
+  width: 18px;
+  border: 2px;
+}
+
+/* .card__header { */
+/* width: 100%; */
+/* } */
