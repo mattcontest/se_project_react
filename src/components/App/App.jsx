@@ -20,6 +20,7 @@ import {
   getItems,
   deleteItem,
   addItem,
+  addCardLike,
   removeCardLike,
 } from "../../utils/api.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
@@ -44,6 +45,7 @@ function App() {
 
   const navigate = useNavigate();
   const [itemsUpdated, setItemsUpdated] = useState(false);
+  const [likeUpdated, setLikeUpdated] = useState(false);
   const [userUpdated, setUserUpdated] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
@@ -107,19 +109,43 @@ function App() {
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
-    !isLiked
-      ? addCardLike(id, token).then((updatedCard) => {
-          setClothingItems((cards) => {
-            cards.map((item) => (item._id === id ? updatedCard : item));
-          }).catch((err) => console.log(err));
+    const updateCard = (updatedCard) => {
+      setClothingItems((prevItems) =>
+        prevItems.map((item) =>
+          item._id === id ? { ...item, ...updatedCard } : item
+        )
+      );
+    };
+    if (!isLiked) {
+      addCardLike(id, token)
+        .then((res) => {
+          updateCard(res);
+          setLikeUpdated(true);
         })
-      : removeCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) => {
-              cards.map((item) => (item._id === id ? updatedCard : item));
-            });
-          })
-          .catch((err) => console.log(err));
+        .catch((err) => console.log(err));
+    }
+    if (isLiked) {
+      removeCardLike(id, token)
+        .then((res) => {
+          updateCard(res);
+          setLikeUpdated(true);
+        })
+        .catch((err) => console.log(err));
+    }
+
+    // !isLiked
+    //   ? addCardLike(id, token).then((updatedCard) => {
+    //       setClothingItems((cards) => {
+    //         cards.map((item) => (item._id === id ? updatedCard : item));
+    //       }).catch((err) => console.log(err));
+    //     })
+    //   : removeCardLike(id, token)
+    //       .then((updatedCard) => {
+    //         setClothingItems((cards) => {
+    //           cards.map((item) => (item._id === id ? updatedCard : item));
+    //         });
+    //       })
+    //       .catch((err) => console.log(err));
   };
 
   const handleAddItemSubmit = ({ name, weather, imageUrl }) => {
@@ -251,6 +277,16 @@ function App() {
   }, [isLoggedIn, userUpdated]);
 
   useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems([...data]);
+      })
+      .catch(console.error);
+    console.log("After running getItems(), turn likeupdated to false");
+    setLikeUpdated(false);
+  }, [likeUpdated]);
+
+  useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filterData = filterWeatherData(data);
@@ -304,6 +340,7 @@ function App() {
                     {" "}
                     <Profile
                       weatherData={weatherData}
+                      onCardLike={handleCardLike}
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}

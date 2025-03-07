@@ -67,6 +67,7 @@
   height: 15px;
   width: 18px;
   border: 2px;
+  cursor: pointer;
 }
 
 /* .card__header { */

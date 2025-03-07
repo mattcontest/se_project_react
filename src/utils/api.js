@@ -35,7 +35,8 @@ function addItem({ name, weather, imageUrl }) {
   }).then(checkResponse);
 }
 
-function addCardLike({ id }) {
+function addCardLike(id) {
+  console.log("Checking id from api.js", id);
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
@@ -47,7 +48,7 @@ function addCardLike({ id }) {
     checkResponse(res);
   });
 }
-function removeCardLike({ id }) {
+function removeCardLike(id) {
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",

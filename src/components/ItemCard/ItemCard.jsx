@@ -1,11 +1,23 @@
 import "../ItemCard/ItemCard.css";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 function ItemCard({ item, onCardClick, onCardLike }) {
   const handleCardClick = () => {
     onCardClick(item);
   };
 
+  const currentUser = useContext(CurrentUserContext);
+  // const isLiked = currentUser
+  //   ? item.likes.some((id) => id === currentUser._id)
+  //   : false;
+
+  const isLiked = item.likes.length > 0;
+
   const handleLike = () => {
-    onCardLike(item);
+    console.log("Check item", item);
+    console.log("Check if is liked", isLiked);
+    console.log("Check id", item._id);
+    onCardLike({ id: item._id, isLiked: isLiked });
   };
 
   return (
