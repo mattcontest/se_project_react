@@ -18,7 +18,7 @@ function ItemModal({
 
   return (
     <div className={`modal ${activeModal === "preview" && "modal_open"}`}>
-      <div className="modal__content modal__content_type_image">
+      <div className="modal__item_content modal__content_type_image">
         <button
           type="button"
           className="modal__close modal__close_item"
