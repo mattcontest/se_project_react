@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { Navigate, useLocation } from "react-router-dom";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+// import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+// import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ProtectedRoute({ isLoggedIn, children }) {
   //   const location = useLocation();
