@@ -118,7 +118,7 @@ export default function AddItemModal({
         </label>
       </fieldset>
       <button type="submit" className="modal__submit">
-        <a className="modal__submit_text">{buttonText}</a>
+        {buttonText}
       </button>
     </ModalWithForm>
   );
