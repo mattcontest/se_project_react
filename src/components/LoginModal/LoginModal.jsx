@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-// import "./LoginModal.css";
+import "./LoginModal.css";
 
 export default function LoginModal({
   title,
