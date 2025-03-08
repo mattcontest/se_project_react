@@ -5,7 +5,7 @@ import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit";
+// import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Header({
@@ -20,27 +20,27 @@ function Header({
   });
 
   // console.log("Check weatherData", weatherData);
-  const [checked, setChecked] = React.useState(false);
-  const handleChange = () => {
-    setChecked(!checked);
-  };
+  // const [checked, setChecked] = React.useState(false);
+  // const handleChange = () => {
+  //   setChecked(!checked);
+  // };
 
-  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  // const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const currentUser = useContext(CurrentUserContext);
 
-  const Checkbox = ({ label, value, onChange, labelCss, inputCss }) => {
-    return (
-      <label className={labelCss}>
-        <input
-          className={inputCss}
-          type="checkbox"
-          checked={checked}
-          onChange={onChange}
-        />
-        {label}
-      </label>
-    );
-  };
+  // const Checkbox = ({ label, value, onChange, labelCss, inputCss }) => {
+  //   return (
+  //     <label className={labelCss}>
+  //       <input
+  //         className={inputCss}
+  //         type="checkbox"
+  //         checked={checked}
+  //         onChange={onChange}
+  //       />
+  //       {label}
+  //     </label>
+  //   );
+  // };
 
   return (
     <header className="header">
