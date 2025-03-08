@@ -4,9 +4,7 @@ import useModalClose from "../../utils/UseModalClose";
 
 function ModalWithForm({
   children,
-  buttonText,
   title,
-  activeModal,
   handleCloseModal,
   isOpen,
   onSubmit,
