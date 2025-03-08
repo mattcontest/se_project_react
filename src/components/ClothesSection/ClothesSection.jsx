@@ -4,7 +4,6 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
 function ClothesSection({
-  weatherData,
   onCardClick,
   clothingItems,
   handleAddClick,
