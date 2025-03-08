@@ -50,27 +50,36 @@ function Header({
       <p className="header__date-and-location">{`${currentDate}, ${weatherData?.city}`}</p>
 
       <ToggleSwitch />
-      <button
-        type="button"
-        onClick={handleAddClick}
-        className="header__add-clothes"
-      >
-        +Add Clothes
-      </button>
-      <button
-        type="button"
-        className="header__signup"
-        onClick={handleSignupClick}
-      >
-        Signup
-      </button>
-      <button
-        type="button"
-        className="header__login"
-        onClick={handleLoginClick}
-      >
-        Login
-      </button>
+      {currentUser && (
+        <button
+          type="button"
+          onClick={handleAddClick}
+          className="header__add-clothes"
+        >
+          +Add Clothes
+        </button>
+      )}
+
+      {!currentUser && (
+        <button
+          type="button"
+          className="header__signup"
+          onClick={handleSignupClick}
+        >
+          Signup
+        </button>
+      )}
+
+      {!currentUser && (
+        <button
+          type="button"
+          className="header__login"
+          onClick={handleLoginClick}
+        >
+          Login
+        </button>
+      )}
+
       <Link className="header__link" to="/profile">
         <div className="header__user-container">
           <p className="header__username">

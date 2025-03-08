@@ -9,6 +9,7 @@ export default function RegistrationModal({
   handleCloseModal,
   isOpen,
   onSignupSubmit,
+  handleLoginSubmitInstead,
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +37,10 @@ export default function RegistrationModal({
   //   e.preventDefault();
   //   setIsLoading(true);
   // };
+
+  const handleLoginSubmit = () => {
+    handleLoginSubmitInstead();
+  };
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -110,7 +115,11 @@ export default function RegistrationModal({
           <a className="modal__submit_text">{buttonText}</a>
         </button>
 
-        <button type="submit" className="modal__login">
+        <button
+          type="button"
+          className="modal__login"
+          onClick={handleLoginSubmit}
+        >
           <a className="modal__login_text">or Log In</a>
         </button>
       </div>

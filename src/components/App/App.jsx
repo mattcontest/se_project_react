@@ -82,6 +82,15 @@ function App() {
     setActiveModal("edit-data");
   };
 
+  const handleLoginSubmitInstead = () => {
+    closeActiveModal();
+    setActiveModal("login");
+  };
+  const handleSignupSubmitInstead = () => {
+    closeActiveModal();
+    setActiveModal("signup");
+  };
+
   // useEffect(() => {
   //   if (!activeModal) return;
 
@@ -375,6 +384,7 @@ function App() {
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "signup"}
             onSignupSubmit={handleSignupSubmit}
+            handleLoginSubmitInstead={handleLoginSubmitInstead}
           />
           <LoginModal
             title="Login"
@@ -383,6 +393,7 @@ function App() {
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "login"}
             onSubmit={handleLoginSubmit}
+            handleSignupSubmitInstead={handleSignupSubmitInstead}
           />
           <EditProfileModal
             title="Change profile data"

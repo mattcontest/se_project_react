@@ -9,6 +9,7 @@ export default function LoginModal({
   handleCloseModal,
   isOpen,
   onSubmit,
+  handleSignupSubmitInstead,
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,6 +24,10 @@ export default function LoginModal({
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     onSubmit({ email, password });
+  };
+
+  const handleSignupInstead = () => {
+    handleSignupSubmitInstead();
   };
 
   return (
@@ -66,9 +71,9 @@ export default function LoginModal({
         </button>
 
         <button
-          type="submit"
+          type="button"
           className="modal__signup_btn"
-          onClick={handleLoginSubmit}
+          onClick={handleSignupInstead}
         >
           <a className="modal__login_text">or Sign Up</a>
         </button>
