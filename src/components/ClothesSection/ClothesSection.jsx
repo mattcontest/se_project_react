@@ -22,6 +22,8 @@ function ClothesSection({
 
       <ul className="clothes-section__items">
         {clothingItems
+          .slice()
+          .reverse()
           .filter((item) => {
             return item.owner?._id === currentUser._id;
           })

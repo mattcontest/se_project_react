@@ -23,6 +23,8 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
         <ul className="cards__list">
           {/* {defaultClothingItems */}
           {clothingItems
+            .slice()
+            .reverse()
             .filter((item) => {
               return item.weather === weatherData.type;
             })
