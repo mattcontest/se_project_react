@@ -75,10 +75,7 @@ export default function EditProfileModal({
         />
       </label>
       <div className="button__container">
-        {/* <button className="modal__edit_btn " onClick={handleEditProfileSubmit}> */}
-        <button className="modal__edit_btn ">
-          <a className="modal__submit_text">{buttonText}</a>
-        </button>
+        <button className="modal__edit_btn ">{buttonText}</button>
       </div>
     </ModalWithForm>
   );
