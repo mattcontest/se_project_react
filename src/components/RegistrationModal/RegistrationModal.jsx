@@ -86,7 +86,7 @@ export default function RegistrationModal({
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="user_name"
           placeholder="Name"
           onChange={handleNameChange}
           value={name}
@@ -100,7 +100,7 @@ export default function RegistrationModal({
         <input
           type="url"
           className="modal__input"
-          id="email"
+          id="avatar_url"
           placeholder="Avatar"
           onChange={handleAvatarChange}
           value={avatar}

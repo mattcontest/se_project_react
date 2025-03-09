@@ -44,7 +44,7 @@ export default function LoginModal({
         <input
           type="email"
           className="modal__input"
-          id="email"
+          id="login_email"
           value={email}
           placeholder="Email"
           onChange={handleEmailChange}
@@ -56,7 +56,7 @@ export default function LoginModal({
           type="password"
           className="modal__input"
           value={password}
-          id="password"
+          id="login_password"
           placeholder="Password"
           onChange={handlePasswordChange}
         />

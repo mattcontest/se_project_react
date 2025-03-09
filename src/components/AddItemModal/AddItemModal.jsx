@@ -57,7 +57,7 @@ export default function AddItemModal({
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="item_name"
           placeholder="Name"
           required
           minLength="1"

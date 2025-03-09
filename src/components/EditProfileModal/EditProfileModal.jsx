@@ -55,7 +55,7 @@ export default function EditProfileModal({
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="profile_name"
           value={name}
           placeholder="Name"
           onChange={handleNameChange}
