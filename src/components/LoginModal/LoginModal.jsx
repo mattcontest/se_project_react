@@ -38,6 +38,7 @@ export default function LoginModal({
       isOpen={isOpen}
       handleCloseModal={handleCloseModal}
       loginModal={true}
+      onSubmit={handleLoginSubmit}
     >
       <label htmlFor="email" className="modal__label modal_label_login">
         Email{""}
@@ -62,12 +63,8 @@ export default function LoginModal({
         />
       </label>
       <div className="button__container">
-        <button
-          type="submit"
-          className="modal__login_btn"
-          onClick={handleLoginSubmit}
-        >
-          <a className="modal__submit_text">{buttonText}</a>
+        <button type="submit" className="modal__login_btn">
+          {buttonText}
         </button>
 
         <button

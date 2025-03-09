@@ -54,7 +54,7 @@ export default function RegistrationModal({
       activeModal={activeModal}
       handleCloseModal={handleCloseModal}
       isOpen={isOpen}
-      // onSubmit={onSignupSubmit}
+      onSubmit={handleRegistration}
     >
       <label htmlFor="email" className="modal__label modal_label_registration">
         Email{""}
@@ -107,20 +107,16 @@ export default function RegistrationModal({
         />
       </label>
       <div className="button__container">
-        <button
-          type="submit"
-          className="modal__signup"
-          onClick={handleRegistration}
-        >
-          <a className="modal__submit_text">{buttonText}</a>
+        <button type="submit" className="modal__signup">
+          {buttonText}
         </button>
 
         <button
           type="button"
-          className="modal__login"
+          className="modal__login modal__login_text"
           onClick={handleLoginSubmit}
         >
-          <a className="modal__login_text">or Log In</a>
+          or Log In
         </button>
       </div>
     </ModalWithForm>
