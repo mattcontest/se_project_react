@@ -47,7 +47,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTempereatureUnit] = useState("F");
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
   // const [checkingAuth, setCheckingAuth] = useState(true);
   // const [userAvatar, setUserAvatar] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -127,7 +127,7 @@ function App() {
           updateCard(res);
           setLikeUpdated(true);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.error);
     }
     if (isLiked) {
       removeCardLike(id, token)
@@ -182,7 +182,7 @@ function App() {
     localStorage.removeItem("jwt");
     // navigate("/")
     setIsLoggedIn(false);
-    setCurrentUser("");
+    setCurrentUser(null);
     console.log("Logged out!");
   };
 
@@ -198,7 +198,8 @@ function App() {
         console.log("check", res);
         if (res) {
           localStorage.setItem("jwt", res.token);
-          setActiveModal("");
+          // setActiveModal("");
+          closeActiveModal();
           setIsLoggedIn(true);
           console.log("After login", res);
         }

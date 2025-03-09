@@ -14,7 +14,7 @@ function ItemModal({
 }) {
   useModalClose(isOpen, handleCloseModal);
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = card.owner?._id === currentUser._id;
+  const isOwn = card.owner?._id === currentUser?._id;
 
   return (
     <div className={`modal ${activeModal === "preview" && "modal_open"}`}>
