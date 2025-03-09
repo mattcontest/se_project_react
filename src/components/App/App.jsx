@@ -50,6 +50,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   // const [checkingAuth, setCheckingAuth] = useState(true);
   // const [userAvatar, setUserAvatar] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleToggleSwitchChange = () => {
     setCurrentTempereatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
@@ -210,27 +211,35 @@ function App() {
   const handleSignupSubmit = (userData) => {
     //Todo
     console.log("To complete soon", userData);
-    registerUser(userData).then((res) => {
-      console.log("check", res);
-      if (res._id) {
-        console.log("After registration", res);
-        handleLoginSubmit(userData);
-        setActiveModal("");
-      }
-    });
+    registerUser(userData)
+      .then((res) => {
+        console.log("check", res);
+        if (res._id) {
+          console.log("After registration", res);
+          handleLoginSubmit(userData);
+          setActiveModal("");
+        }
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
   };
 
   const handleEditProfileSubmit = (userData) => {
     console.log("Check info before edit", userData);
-    return editProfileInfo(userData).then((res) => {
-      if (res.name == userData.name) {
-        setUserUpdated(true);
-        closeActiveModal();
-        //Allowing time to refresh state in useEffect before resetting userUpdated state back to default
-        // setTimeout(() => setUserUpdated(false), 500);
-      }
-      console.log("Check from edit profile change", res);
-    });
+    setIsLoading(true);
+    return editProfileInfo(userData)
+      .then((res) => {
+        if (res.name == userData.name) {
+          setUserUpdated(true);
+          setIsLoading(false);
+          closeActiveModal();
+          //Allowing time to refresh state in useEffect before resetting userUpdated state back to default
+          // setTimeout(() => setUserUpdated(false), 500);
+        }
+        console.log("Check from edit profile change", res);
+      })
+      .catch((err) => console.error("Error", err));
   };
 
   // useEffect(() => {
@@ -398,7 +407,7 @@ function App() {
           />
           <EditProfileModal
             title="Change profile data"
-            buttonText="Save changes"
+            buttonText={isLoading ? "Saving..." : "Save"}
             activeModal={activeModal}
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "edit-data"}
