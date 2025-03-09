@@ -49,6 +49,7 @@ export default function EditProfileModal({
       isOpen={isOpen}
       handleCloseModal={handleCloseModal}
       editProfileModal={true}
+      onSubmit={handleEditProfileSubmit}
     >
       <label htmlFor="text" className="modal__label modal_label_edit">
         Name{""}
@@ -74,7 +75,8 @@ export default function EditProfileModal({
         />
       </label>
       <div className="button__container">
-        <button className="modal__edit_btn " onClick={handleEditProfileSubmit}>
+        {/* <button className="modal__edit_btn " onClick={handleEditProfileSubmit}> */}
+        <button className="modal__edit_btn ">
           <a className="modal__submit_text">{buttonText}</a>
         </button>
       </div>
