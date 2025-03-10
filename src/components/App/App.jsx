@@ -240,7 +240,11 @@ function App() {
         setClothingItems([...data, data]);
       })
       .catch(console.error);
+    //For the reviewer:
+    //If you remove this then it won't automatically refresh when you either
+    //add or remove a like, it will need to manually refresh to see the changes.
   }, [itemsUpdated]);
+  // }, []);
 
   const handleLogoutSubmit = () => {
     localStorage.removeItem("jwt");
