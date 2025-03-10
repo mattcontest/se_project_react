@@ -194,8 +194,8 @@ function App() {
       console.log("Error with password or Email");
     }
 
-    loginUser({ email: userData.email, password: userData.password }).then(
-      (res) => {
+    loginUser({ email: userData.email, password: userData.password })
+      .then((res) => {
         console.log("check", res);
         if (res) {
           localStorage.setItem("jwt", res.token);
@@ -204,8 +204,10 @@ function App() {
           setIsLoggedIn(true);
           console.log("After login", res);
         }
-      }
-    );
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
   };
 
   const handleSignupSubmit = (userData) => {
