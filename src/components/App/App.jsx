@@ -152,6 +152,8 @@ function App() {
             //For the reviewer:
             //If you remove this then it won't automatically refresh when you either
             //add or remove a like, it will need to manually refresh to see the changes.
+            //Will the refreshed automatically feature be added later or is needed now?
+
             setItemsUpdated((prev) => !prev);
           })
           .catch((err) => console.log(err))
@@ -167,6 +169,8 @@ function App() {
             //For the reviewer:
             //If you remove this then it won't automatically refresh when you either
             //add or remove a like, it will need to manually refresh to see the changes.
+            //Will the refreshed automatically feature be added later or is needed now?
+
             setItemsUpdated((prev) => !prev);
           })
           .catch((err) => console.log(err));
@@ -243,6 +247,7 @@ function App() {
     //For the reviewer:
     //If you remove this then it won't automatically refresh when you either
     //add or remove a like, it will need to manually refresh to see the changes.
+    //Will the refreshed automatically feature be added later or is needed now?
   }, [itemsUpdated]);
   // }, []);
 
