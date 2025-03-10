@@ -40,7 +40,7 @@ export default function LoginModal({
       loginModal={true}
       onSubmit={handleLoginSubmit}
     >
-      <label htmlFor="email" className="modal__label modal_label_login">
+      <label htmlFor="login_email" className="modal__label modal_label_login">
         Email{""}
         <input
           type="email"
@@ -51,7 +51,10 @@ export default function LoginModal({
           onChange={handleEmailChange}
         />
       </label>
-      <label htmlFor="password" className="modal__label modal_label_login">
+      <label
+        htmlFor="login_password"
+        className="modal__label modal_label_login"
+      >
         Password{""}
         <input
           type="password"
@@ -69,10 +72,10 @@ export default function LoginModal({
 
         <button
           type="button"
-          className="modal__signup_btn"
+          className="modal__signup_btn modal__login_text"
           onClick={handleSignupInstead}
         >
-          <a className="modal__login_text">or Sign Up</a>
+          or Sign Up
         </button>
       </div>
     </ModalWithForm>

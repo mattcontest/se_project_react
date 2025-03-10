@@ -51,7 +51,7 @@ export default function EditProfileModal({
       editProfileModal={true}
       onSubmit={handleEditProfileSubmit}
     >
-      <label htmlFor="text" className="modal__label modal_label_edit">
+      <label htmlFor="profile_name" className="modal__label modal_label_edit">
         Name{""}
         <input
           type="text"
@@ -63,7 +63,7 @@ export default function EditProfileModal({
         />
       </label>
 
-      <label htmlFor="URL" className="modal__label modal_label_edit">
+      <label htmlFor="avatar" className="modal__label modal_label_edit">
         Avatar{""}
         <input
           type="text"
