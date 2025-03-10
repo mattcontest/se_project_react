@@ -52,7 +52,7 @@ export default function AddItemModal({
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="modal__label  modal__label_name">
+      <label htmlFor="item_name" className="modal__label  modal__label_name">
         Name{""}
         <input
           type="text"
