@@ -115,29 +115,83 @@ function App() {
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
-    const updateCard = (updatedCard) => {
-      setClothingItems((prevItems) =>
-        prevItems.map((item) =>
-          item._id === id ? { ...item, ...updatedCard } : item
-        )
-      );
-    };
-    if (!isLiked) {
-      addCardLike(id, token)
-        .then((res) => {
-          updateCard(res);
-          setLikeUpdated(true);
-        })
-        .catch((err) => console.error);
-    }
-    if (isLiked) {
-      removeCardLike(id, token)
-        .then((res) => {
-          updateCard(res);
-          setLikeUpdated(true);
-        })
-        .catch((err) => console.log(err));
-    }
+    // const updateCard = (updatedCard) => {
+    //   setClothingItems((prevItems) =>
+    //     prevItems.map((item) =>
+    //       item._id === id ? { ...item, ...updatedCard } : item
+    //     )
+    //   );
+    // };
+    // if (!isLiked) {
+    //   addCardLike(id, token)
+    //     .then((res) => {
+    //       updateCard(res);
+    //       setLikeUpdated(true);
+    //     })
+    //     .catch((err) => console.error);
+    // }
+    // if (isLiked) {
+    //   removeCardLike(id, token)
+    //     .then((res) => {
+    //       updateCard(res);
+    //       setLikeUpdated(true);
+    //     })
+    //     .catch((err) => console.log(err));
+    // }
+
+    !isLiked
+      ? addCardLike(id, token)
+          .then((updatedCard) =>
+            setClothingItems((cards) =>
+              cards.map((item) =>
+                item._id === id ? { ...item, ...updatedCard } : item
+              )
+            )
+          )
+          .then(() => {
+            setItemsUpdated((prev) => !prev);
+          })
+          .catch((err) => console.log(err))
+      : removeCardLike(id, token)
+          .then((updatedCard) =>
+            setClothingItems((cards) =>
+              cards.map((item) =>
+                item._id === id ? { ...item, ...updatedCard } : item
+              )
+            )
+          )
+          .then(() => {
+            setItemsUpdated((prev) => !prev);
+          })
+          .catch((err) => console.log(err));
+
+    //     removeCardLike(id,token).then( (updatedCard) =>{
+    //       setClothingItems( (cards) => {cards.map((item)=> (item._id === id ? updatedCard : item))})
+    //     })
+    //   }
+    // )
+
+    // !isLiked
+    // ? // if so, send a request to add the user's id to the card's likes array
+
+    //     // the first argument is the card's id
+    //     addCardLike(id, token)
+    //     .then((updatedCard) => {
+    //       setClothingItems((cards) =>
+    //         cards.map((item) => (item._id === id ? updatedCard : item))
+    //       );
+    //     })
+    //     .catch((err) => console.log(err))
+    // : // if not, send a request to remove the user's id from the card's likes array
+
+    //     // the first argument is the card's id
+    //     removeCardLike(id, token)
+    //     .then((updatedCard) => {
+    //       setClothingItems((cards) =>
+    //         cards.map((item) => (item._id === id ? updatedCard : item))
+    //       );
+    //     })
+    //     .catch((err) => console.log(err));
 
     // !isLiked
     //   ? addCardLike(id, token).then((updatedCard) => {
@@ -219,7 +273,7 @@ function App() {
         if (res._id) {
           console.log("After registration", res);
           handleLoginSubmit(userData);
-          setActiveModal("");
+          closeActiveModal();
         }
       })
       .catch((error) => {
@@ -288,17 +342,21 @@ function App() {
     if (!jwt) {
       return;
     }
-    getUserInfo(jwt).then((res) => {
-      console.log("Check response from jwt", res);
-      if (res) {
-        setCurrentUser(res);
-        setIsLoggedIn(true);
-        // setUserAvatar(res.avatar);
-      }
-      //Resetting setUserUpdated to false after fetching user info
-      setUserUpdated(false);
-      console.log("How many times happen?");
-    });
+    getUserInfo(jwt)
+      .then((res) => {
+        console.log("Check response from jwt", res);
+        if (res) {
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+          // setUserAvatar(res.avatar);
+        }
+        //Resetting setUserUpdated to false after fetching user info
+        setUserUpdated(false);
+        console.log("How many times happen?");
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
   }, [isLoggedIn, userUpdated]);
 
   //Using this useEffect to refresh getItems after their either got liked/disliked
@@ -311,7 +369,7 @@ function App() {
       .catch(console.error);
     console.log("After running getItems(), turn likeupdated to false");
     setLikeUpdated(false);
-  }, [likeUpdated]);
+  }, []);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
