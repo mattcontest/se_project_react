@@ -361,15 +361,16 @@ function App() {
 
   //Using this useEffect to refresh getItems after their either got liked/disliked
   //And switching/defaulting back to original likeUpdated status (false)
-  useEffect(() => {
-    getItems()
-      .then((data) => {
-        setClothingItems([...data]);
-      })
-      .catch(console.error);
-    console.log("After running getItems(), turn likeupdated to false");
-    setLikeUpdated(false);
-  }, []);
+
+  // useEffect(() => {
+  //   getItems()
+  //     .then((data) => {
+  //       setClothingItems([...data]);
+  //     })
+  //     .catch(console.error);
+  //   console.log("After running getItems(), turn likeupdated to false");
+  //   setLikeUpdated(false);
+  // }, []);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
