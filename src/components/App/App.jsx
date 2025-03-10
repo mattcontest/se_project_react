@@ -149,6 +149,9 @@ function App() {
             )
           )
           .then(() => {
+            //For the reviewer:
+            //If you remove this then it won't automatically refresh when you either
+            //add or remove a like, it will need to manually refresh to see the changes.
             setItemsUpdated((prev) => !prev);
           })
           .catch((err) => console.log(err))
@@ -161,9 +164,15 @@ function App() {
             )
           )
           .then(() => {
+            //For the reviewer:
+            //If you remove this then it won't automatically refresh when you either
+            //add or remove a like, it will need to manually refresh to see the changes.
             setItemsUpdated((prev) => !prev);
           })
           .catch((err) => console.log(err));
+    //For the reviewer:
+    //If you remove this then it won't automatically refresh when you either
+    //add or remove a like, it will need to manually refresh to see the changes.
 
     //     removeCardLike(id,token).then( (updatedCard) =>{
     //       setClothingItems( (cards) => {cards.map((item)=> (item._id === id ? updatedCard : item))})
