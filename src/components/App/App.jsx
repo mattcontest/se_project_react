@@ -183,10 +183,16 @@ function App() {
     // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
     console.log("Submitting...", { name, weather, imageUrl });
     return addItem({ name, weather, imageUrl }).then((res) => {
-      console.log("After adding it", res);
-      // setClothingItems((prevItems) => [res.data, ...prevItems]);
-      setItemsUpdated((prev) => !prev);
-      closeActiveModal();
+      console.log("Response from server", res.data);
+      getItems().then((data) => {
+        setClothingItems([...data]);
+        closeActiveModal();
+      });
+
+      // setClothingItems((prevItems) => [res.data, ...prevItems]).catch(
+      //   console.error
+      // );
+      // setItemsUpdated((prev) => !prev);
     });
     //   { name, imageUrl, weather },
     //   ...prevItems,
@@ -353,7 +359,7 @@ function App() {
         setClothingItems([...data]);
       })
       .catch(console.error);
-  }, [itemsUpdated]);
+  }, []);
 
   return (
     <CurrentTemperatureUnitContext.Provider

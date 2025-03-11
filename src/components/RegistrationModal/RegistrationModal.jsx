@@ -96,7 +96,7 @@ export default function RegistrationModal({
         />
       </label>
       <label
-        htmlFor="avatar"
+        htmlFor="avatar_url"
         className="modal__label modal_label_registration modal_label_last_element"
       >
         Avatar URL{""}
