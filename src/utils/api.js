@@ -44,9 +44,7 @@ function addCardLike(id) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    checkResponse(res);
-  });
+  }).then(checkResponse);
 }
 function removeCardLike(id) {
   const token = localStorage.getItem("jwt");
@@ -56,9 +54,7 @@ function removeCardLike(id) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    checkResponse(res);
-  });
+  }).then(checkResponse);
 }
 
 function checkResponse(res) {
