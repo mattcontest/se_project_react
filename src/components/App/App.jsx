@@ -92,23 +92,6 @@ function App() {
     setActiveModal("signup");
   };
 
-  // useEffect(() => {
-  //   if (!activeModal) return;
-
-  //   const handleEscClose = (e) => {
-  //     if (e.key === "Escape") {
-  //       closeActiveModal();
-  //     }
-  //   };
-
-  //   document.addEventListener("keydown", handleEscClose);
-
-  //   // Cleanup Function
-  //   return () => {
-  //     document.removeEventListener("keydown", handleEscClose);
-  //   };
-  // }, [activeModal]);
-
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -158,15 +141,6 @@ function App() {
             )
           )
           .catch((err) => console.log(err));
-    //For the reviewer:
-    //If you remove this then it won't automatically refresh when you either
-    //add or remove a like, it will need to manually refresh to see the changes.
-
-    //     removeCardLike(id,token).then( (updatedCard) =>{
-    //       setClothingItems( (cards) => {cards.map((item)=> (item._id === id ? updatedCard : item))})
-    //     })
-    //   }
-    // )
 
     // !isLiked
     // ? // if so, send a request to add the user's id to the card's likes array
@@ -214,26 +188,12 @@ function App() {
       setItemsUpdated((prev) => !prev);
       closeActiveModal();
     });
-    // setClothingItems((prevItems) => [
     //   { name, imageUrl, weather },
     //   ...prevItems,
     // ]);
 
     // setClothingItems([{ name, link: imgUrl, weather }, ...clothingItems]);
   };
-
-  useEffect(() => {
-    getItems()
-      .then((data) => {
-        setClothingItems([...data, data]);
-      })
-      .catch(console.error);
-    //For the reviewer:
-    //If you remove this then it won't automatically refresh when you either
-    //add or remove a like, it will need to manually refresh to see the changes.
-    //Will the refreshed automatically feature be added later or is needed now?
-  }, [itemsUpdated]);
-  // }, []);
 
   const handleLogoutSubmit = () => {
     localStorage.removeItem("jwt");
@@ -393,7 +353,7 @@ function App() {
         setClothingItems([...data]);
       })
       .catch(console.error);
-  }, []);
+  }, [itemsUpdated]);
 
   return (
     <CurrentTemperatureUnitContext.Provider

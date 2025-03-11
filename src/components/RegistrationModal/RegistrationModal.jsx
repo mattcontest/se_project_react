@@ -81,7 +81,10 @@ export default function RegistrationModal({
           value={password}
         />
       </label>
-      <label htmlFor="name" className="modal__label modal_label_registration">
+      <label
+        htmlFor="user_name"
+        className="modal__label modal_label_registration"
+      >
         Name{""}
         <input
           type="text"
