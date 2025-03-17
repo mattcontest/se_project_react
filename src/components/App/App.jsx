@@ -11,7 +11,7 @@ import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import RegistrationModal from "../RegistrationModal/RegistrationModal.jsx";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 import {
   getItems,
@@ -404,6 +404,8 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
 
             <Footer />
