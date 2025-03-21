@@ -18,7 +18,6 @@ export const registerUser = (userData) => {
       password: userData.password,
     }),
   }).then((res) => {
-    x;
     return checkResponse(res);
   });
 };
