@@ -40,8 +40,8 @@ function App() {
   });
 
   // const navigate = useNavigate();
-  const [itemsUpdated, setItemsUpdated] = useState(false);
-  const [likeUpdated, setLikeUpdated] = useState(false);
+  // const [itemsUpdated, setItemsUpdated] = useState(false);
+  // const [likeUpdated, setLikeUpdated] = useState(false);
   const [userUpdated, setUserUpdated] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");

@@ -3,7 +3,7 @@ import { BASE_URL } from "./constants";
 
 // export const BASE_URL = "http://localhost:3001";
 
-console.log("Where are you feching from ", process.env.NODE_ENV);
+// console.log("Where are you feching from ", process.env.NODE_ENV);
 
 export const registerUser = (userData) => {
   return fetch(`${BASE_URL}/signup`, {
