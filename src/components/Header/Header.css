@@ -85,3 +85,8 @@
   height: 40px;
   border-radius: 15px;
 }
+@media (max-width: 428px) {
+  .header__date-and-location {
+    display: none;
+  }
+}
