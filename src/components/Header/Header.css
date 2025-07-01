@@ -89,4 +89,16 @@
   .header__date-and-location {
     display: none;
   }
+
+  .header__login {
+    margin-right: auto;
+  }
+
+  .header__username {
+    display: none;
+  }
+
+  .header__avatar {
+    /* display: none; */
+  }
 }
