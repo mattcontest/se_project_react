@@ -6,7 +6,8 @@ import { useContext } from "react";
 
 function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  // console.log("From main", weatherData);
+  console.log("From main", clothingItems);
+  console.log("weatherData.type:", weatherData.type);
   return (
     <main className="main">
       <WeatherCard weatherData={weatherData} />
@@ -23,9 +24,13 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
         <ul className="cards__list">
           {/* {defaultClothingItems */}
           {clothingItems
+
             .slice()
             .reverse()
+
             .filter((item) => {
+              // console.log("checking", item._id, "weather:", item.weather);
+
               return item.weather === weatherData.type;
             })
             .map((item) => {

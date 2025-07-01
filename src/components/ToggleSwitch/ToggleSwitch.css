@@ -53,3 +53,9 @@
 .toggle-switch__text_color_white {
   color: white;
 }
+
+@media (max-width: 428px) {
+  .toggle-switch {
+    display: none;
+  }
+}

@@ -356,6 +356,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
+        console.log("Check the data", data);
         setClothingItems([...data]);
       })
       .catch(console.error);
